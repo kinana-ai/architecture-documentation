@@ -1,97 +1,128 @@
+```json
 //[doc-seo]
 {
-"Description": "Learn about Kinana — an online content hub for uploading, managing, and delivering interactive content across microservice-based apps: Library, Videos, Podcast, and Brokkly."
+    "Description": "Explore the ABP documentation to build robust enterprise solutions with best practices, templates, and tools for .NET and ASP.NET Core."
 }
-
 ```
 
-# <span translate="no">Kinana Documentation</span>
+# <span translate="no">ABP Documentation</span>
 
-**Kinana** is an online **content hub** designed to bring together all kinds of learning and creative materials in one place.
-Users can upload and manage **documents**, **videos**, **audio files**, and **coding activities** — all of which run across Kinana’s microservice-based apps:
+ABP offers an **opinionated architecture** to build enterprise software solutions with **best practices** on top of the **.NET** and the **ASP.NET Core** platforms. It provides the fundamental infrastructure, production-ready startup templates, pre-built application modules, UI themes, tooling, guides and documentation to implement that architecture properly and **automate the details** and repetitive works as much as possible.
 
-- **Library** – for reading and exploring documents and articles.
-- **Videos** – for watching educational or creative video content.
-- **Podcast** – for listening to audio and podcast episodes.
-- **Brokkly** – for running interactive coding activities.
+## Why ABP Platform?
+The following pages outline why you should use the ABP Platform and how it is used:
 
-Kinana is built as a **modular, microservice platform**, making it easy to extend, scale, and integrate with other systems.
-
----
-
-## Why Kinana?
-
-Kinana helps organizations and creators manage and distribute digital content easily across multiple applications.
-It provides a **unified backend**, **content management tools**, and **API-driven apps** for seamless user experiences.
-
-### Highlights
-
-- Upload and manage multiple content types in one place.
-- Deliver content to different Kinana apps automatically.
-- Scalable microservice-based architecture.
-- Developer-friendly APIs and SDKs.
-- Secure, modular, and easy to extend.
-
----
+* [Why choose ABP?](https://abp.io/why-choose-abp)
+* [How it works?](https://abp.io/how-it-works)
+* [Return on investment](https://abp.io/return-on-investment)
 
 ## Get Started
 
-To get started, follow the [Getting Started Guide](get-started) — it explains how to set up the platform, manage content, and connect the Kinana apps.
+The [Getting Started](get-started) guide can be used to create and run ABP based solutions with different options and details.
 
-After setup, you can explore:
+After getting started, you can read the following documents:
 
-* [Library App Guide](apps/library.md) — manage and display text-based content.
-* [Videos App Guide](apps/videos.md) — upload and play video content.
-* [Podcast App Guide](apps/podcast.md) — organize and stream audio episodes.
-* [Brokkly App Guide](apps/brokkly.md) — create and run coding activities.
+* [Todo Application Tutorial](tutorials/todo) to create your first ABP application.
+* [Book Store Application Tutorial](tutorials/book-store/part-01.md) to build a full-featured and real-life web application with ABP.
 
----
+### UI Framework Options
 
-## The Kinana Platform
+ABP can work with any UI framework, while the following frameworks are supported and well-integrated out of the box:
 
-Kinana’s platform is composed of several **core microservices** that handle authentication, content management, media streaming, and app delivery.
+<img width="340" src="images/ui-options.png" alt="ui options">
 
-Below is a simplified diagram of how the platform works:
+### Database Provider Options
 
-![kinana-overview-diagram](images/kinana-overview-diagram.png)
+ABP can work with any database provider, while the following providers are supported and well-integrated out of the box:
 
----
+<img width="340" src="images/db-options.png" alt="ABP Database Providers" />
 
-## Developer Tools
+## The ABP Platform
 
-Kinana offers developer tools to make customization and integration easier:
+ABP **bridges the gap** between ASP.NET Core and **real-world business application requirements**, allowing you to focus on your business code.
 
-- **Kinana CLI** – a command-line tool for managing apps, modules, and deployments.
-- **Kinana Studio** – a desktop environment to configure and monitor Kinana services.
-- **API Explorer** – view and test Kinana’s APIs interactively.
+The following diagram contains the core components of the **ABP Platform** and shows how ABP sits between **ASP.NET Core** and **Your Application**:
 
----
+![abp-overall-diagram-1600](images/abp-overall-diagram-1600.png)
 
-## Modules and Extensions
+## Exploring the Documentation
 
-Kinana is **modular by design** — you can extend existing services or add new ones for custom features such as analytics, AI tagging, or content recommendations.
+ABP has a **comprehensive documentation** that not only explains ABP, but also includes **guides** and **samples** to help you on creating a **maintainable solution** by introducing and discussing common **software development principle and best practices**.
 
-See the [Modules Overview](modules/index.md) for available modules and development guidelines.
+The next sections highlight important ABP components and provides links to related documents.
 
----
+### The Framework
 
-## Community & Support
+#### Architecture
 
-- Visit the [Kinana Community Hub](https://kinana.io/community) to connect with other users and developers.
-- Read the latest updates on the [Kinana Blog](https://kinana.io/blog).
-- Explore [Sample Projects](samples) built with Kinana.
+ABP offers a complete, modular and layered software architecture based on [Domain Driven Design](./framework/architecture/domain-driven-design) principles and patterns. It also provides the necessary infrastructure to implement this architecture.
 
----
+* See the [Modularity](./framework/architecture/modularity/basics.md) document to understand the module system.
+* [Implementing Domain Driven Design book](https://abp.io/books/implementing-domain-driven-design?ref=doc) is an ultimate guide for who want to understand and implement the DDD with ABP.
+* [Microservice Architecture](./framework/architecture/microservices) document explains how ABP helps to create a microservice solution.
+* [Multi-Tenancy](./framework/architecture/multi-tenancy) document introduces multi-tenancy and explores the ABP multi-tenancy infrastructure.
 
-## Source Code
+#### Infrastructure
 
-Kinana’s source code and open modules are hosted on GitHub:
-👉 [View Kinana on GitHub](https://github.com/kinana-platform)
+There are a lot of features provided by ABP to achieve real world scenarios easier, like [Event Bus](./framework/infrastructure/event-bus), [Background Job System](./framework/infrastructure/background-jobs), [Audit Logging](./framework/infrastructure/audit-logging.md), [BLOB Storing](./framework/infrastructure/blob-storing), [Data Seeding](./framework/infrastructure/data-seeding.md), [Data Filtering](./framework/infrastructure/data-filtering.md).
 
----
+#### Cross Cutting Concerns
+
+ABP also simplifies (and even automates wherever possible) cross cutting concerns and common non-functional requirements like [Exception Handling](./framework/fundamentals/exception-handling.md), [Validation](./framework/fundamentals/validation.md), [Authorization](./framework/fundamentals/authorization.md), [Localization](./framework/fundamentals/localization.md), [Caching](./framework/fundamentals/caching.md), [Dependency Injection](./framework/fundamentals/dependency-injection.md), [Setting Management](./framework/infrastructure/settings.md), etc. 
+
+### Tooling
+
+ABP Platform provides tooling to help you in your daily development.
+
+#### ABP Studio
+
+[ABP Studio](studio) is a cross-platform desktop application for ABP and .NET developers. It aims to provide a comfortable development environment for you by automating things, providing insights about your solution, making develop, run, browse, monitor, trace and deploy your solutions much easier.
+
+#### ABP Suite
+
+[ABP Suite](suite) is a tool to assist your application development. Its main functionality is to automatically generate CRUD-style pages once you define your entities and their relations.
+
+#### ABP CLI
+
+[ABP CLI](cli.md) is a command-line tool to create new solutions and automate the things with your ABP based solutions.
+
+### Startup Templates
+
+The [Startup templates](./solution-templates/index.md) are pre-built Visual Studio solution templates. You can create your own solution based on these templates to **immediately start your development**.
+
+### Application Modules
+
+Application Modules provides pre-built application modules those implement common business requirements. See the [Application Modules](modules) document for all pre-built modules.
+
+### UI Themes
+
+ABP provides a UI theming system where you can use [pre-built themes](ui-themes) for your solution or build your own UI themes.
+
+## Books
+
+You can check the following books to expertise the ABP platform:
+
+![books](images/books.png)
+
+* [See the details and **order** the **Mastering ABP Framework** book](https://abp.io/books/mastering-abp-framework)
+* [**Download** your free copy of the **Implementing Domain Driven Design** book](https://abp.io/books/implementing-domain-driven-design?ref=doc)
+
+## Samples
+
+See the [sample projects](samples) built with ABP.
+
+## ABP Community
+
+The [ABP Community](https://abp.io/community/) website is a central place to publish articles and share knowledge about ABP.
+
+## Blog
+
+Follow the [ABP Blog](https://abp.io/blog/) to learn the latest happenings in the ABP Platform.
+
+## The Source Code
+
+ABP's source code is hosted on GitHub. See [the source code](https://github.com/abpframework).
 
 ### Want to Contribute?
 
-Kinana welcomes open-source contributions!
-See the [Contribution Guide](contribution.md) to learn how you can participate.
-```
+ABP is a community-driven open source project. See [the contribution guide](contribution) if you want to be a part of this project.
