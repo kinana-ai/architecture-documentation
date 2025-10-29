@@ -1,0 +1,1254 @@
+{
+  "items": [
+    {
+      "text": "Home / Overview",
+      "items": [
+        {
+          "text": "Welcome to KINANA",
+          "path": "home",
+          "isIndex": true
+        },
+        {
+          "text": "What's New",
+          "path": "home/whats-new.md"
+        },
+        {
+          "text": "Getting Started",
+          "path": "home/getting-started.md"
+        },
+        {
+          "text": "Quick Start Guide",
+          "path": "home/quick-start.md"
+        }
+      ]
+    },
+    {
+      "text": "Platform Architecture",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "architecture",
+          "isIndex": true
+        },
+        {
+          "text": "System Architecture",
+          "path": "architecture/system-architecture.md"
+        },
+        {
+          "text": "Data Architecture",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "architecture/data-architecture",
+              "isIndex": true
+            },
+            {
+              "text": "Database Schema",
+              "path": "architecture/data-architecture/database-schema.md"
+            },
+            {
+              "text": "Data Models",
+              "path": "architecture/data-architecture/data-models.md"
+            },
+            {
+              "text": "Data Flow Diagrams",
+              "path": "architecture/data-architecture/data-flow.md"
+            }
+          ]
+        },
+        {
+          "text": "Security Architecture",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "architecture/security",
+              "isIndex": true
+            },
+            {
+              "text": "Authentication & Authorization",
+              "path": "architecture/security/auth.md"
+            },
+            {
+              "text": "Encryption Standards",
+              "path": "architecture/security/encryption.md"
+            },
+            {
+              "text": "Threat Model",
+              "path": "architecture/security/threat-model.md"
+            }
+          ]
+        },
+        {
+          "text": "Integration Architecture",
+          "path": "architecture/integration-architecture.md"
+        },
+        {
+          "text": "Infrastructure",
+          "path": "architecture/infrastructure.md"
+        }
+      ]
+    },
+    {
+      "text": "Technical Documentation",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "technical",
+          "isIndex": true
+        },
+        {
+          "text": "API Documentation",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "technical/api",
+              "isIndex": true
+            },
+            {
+              "text": "RESTful API Reference",
+              "path": "technical/api/rest-api.md"
+            },
+            {
+              "text": "Authentication",
+              "path": "technical/api/authentication.md"
+            },
+            {
+              "text": "Rate Limiting",
+              "path": "technical/api/rate-limiting.md"
+            },
+            {
+              "text": "Error Codes",
+              "path": "technical/api/error-codes.md"
+            },
+            {
+              "text": "API Versioning",
+              "path": "technical/api/versioning.md"
+            }
+          ]
+        },
+        {
+          "text": "Frontend Documentation",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "technical/frontend",
+              "isIndex": true
+            },
+            {
+              "text": "UI Component Library",
+              "path": "technical/frontend/components.md"
+            },
+            {
+              "text": "Design System",
+              "path": "technical/frontend/design-system.md"
+            },
+            {
+              "text": "State Management",
+              "path": "technical/frontend/state-management.md"
+            },
+            {
+              "text": "Accessibility (WCAG 2.1)",
+              "path": "technical/frontend/accessibility.md"
+            },
+            {
+              "text": "Internationalization",
+              "path": "technical/frontend/i18n.md"
+            }
+          ]
+        },
+        {
+          "text": "Backend Documentation",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "technical/backend",
+              "isIndex": true
+            },
+            {
+              "text": "Microservices",
+              "path": "technical/backend/microservices.md"
+            },
+            {
+              "text": "Business Logic",
+              "path": "technical/backend/business-logic.md"
+            },
+            {
+              "text": "Background Jobs",
+              "path": "technical/backend/background-jobs.md"
+            },
+            {
+              "text": "Notification System",
+              "path": "technical/backend/notifications.md"
+            }
+          ]
+        },
+        {
+          "text": "Database Documentation",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "technical/database",
+              "isIndex": true
+            },
+            {
+              "text": "Schema Documentation",
+              "path": "technical/database/schema.md"
+            },
+            {
+              "text": "Entity Relationships",
+              "path": "technical/database/relationships.md"
+            },
+            {
+              "text": "Stored Procedures",
+              "path": "technical/database/stored-procedures.md"
+            },
+            {
+              "text": "Migration Scripts",
+              "path": "technical/database/migrations.md"
+            }
+          ]
+        },
+        {
+          "text": "DevOps Documentation",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "technical/devops",
+              "isIndex": true
+            },
+            {
+              "text": "CI/CD Pipelines",
+              "path": "technical/devops/cicd.md"
+            },
+            {
+              "text": "Deployment Processes",
+              "path": "technical/devops/deployment.md"
+            },
+            {
+              "text": "Infrastructure as Code",
+              "path": "technical/devops/iac.md"
+            },
+            {
+              "text": "Monitoring & Alerting",
+              "path": "technical/devops/monitoring.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Source Documentation Standards",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "standards",
+          "isIndex": true
+        },
+        {
+          "text": "Code Documentation Standards",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "standards/code-documentation",
+              "isIndex": true
+            },
+            {
+              "text": "Documentation Requirements",
+              "path": "standards/code-documentation/requirements.md"
+            },
+            {
+              "text": "Commenting Standards",
+              "path": "standards/code-documentation/commenting.md"
+            },
+            {
+              "text": "Documentation Tools",
+              "path": "standards/code-documentation/tools.md"
+            }
+          ]
+        },
+        {
+          "text": "File Header Standards",
+          "items": [
+            {
+              "text": "Copyright Header Template",
+              "path": "standards/file-headers/copyright-template.md"
+            },
+            {
+              "text": "License Information",
+              "path": "standards/file-headers/license.md"
+            },
+            {
+              "text": "Author Attribution",
+              "path": "standards/file-headers/author.md"
+            }
+          ]
+        },
+        {
+          "text": "Function & Method Documentation",
+          "path": "standards/function-documentation.md"
+        },
+        {
+          "text": "Class & Module Documentation",
+          "path": "standards/class-documentation.md"
+        },
+        {
+          "text": "README Standards",
+          "path": "standards/readme-standards.md"
+        },
+        {
+          "text": "API Documentation Standards",
+          "path": "standards/api-documentation.md"
+        },
+        {
+          "text": "Architecture Decision Records (ADRs)",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "standards/adr",
+              "isIndex": true
+            },
+            {
+              "text": "ADR Template",
+              "path": "standards/adr/template.md"
+            },
+            {
+              "text": "Decision Process",
+              "path": "standards/adr/process.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Intellectual Property Documentation",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "ip",
+          "isIndex": true
+        },
+        {
+          "text": "IP Portfolio Overview",
+          "path": "ip/portfolio.md"
+        },
+        {
+          "text": "Copyright Documentation",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "ip/copyright",
+              "isIndex": true
+            },
+            {
+              "text": "Registration Details",
+              "path": "ip/copyright/registration.md"
+            },
+            {
+              "text": "Copyright Headers",
+              "path": "ip/copyright/headers.md"
+            },
+            {
+              "text": "Source Code Copyright",
+              "path": "ip/copyright/source-code.md"
+            }
+          ]
+        },
+        {
+          "text": "Patent Documentation",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "ip/patents",
+              "isIndex": true
+            },
+            {
+              "text": "Filed Patents",
+              "path": "ip/patents/filed.md"
+            },
+            {
+              "text": "Patent Applications",
+              "path": "ip/patents/applications.md"
+            },
+            {
+              "text": "Invention Disclosure Process",
+              "path": "ip/patents/disclosure-process.md"
+            }
+          ]
+        },
+        {
+          "text": "Trade Secrets",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "ip/trade-secrets",
+              "isIndex": true
+            },
+            {
+              "text": "Trade Secret Registry",
+              "path": "ip/trade-secrets/registry.md"
+            },
+            {
+              "text": "Protection Measures",
+              "path": "ip/trade-secrets/protection.md"
+            },
+            {
+              "text": "Access Control",
+              "path": "ip/trade-secrets/access-control.md"
+            }
+          ]
+        },
+        {
+          "text": "Trademarks",
+          "items": [
+            {
+              "text": "KINANA Trademark",
+              "path": "ip/trademarks/kinana.md"
+            },
+            {
+              "text": "Brand Guidelines",
+              "path": "ip/trademarks/brand-guidelines.md"
+            },
+            {
+              "text": "Usage Policies",
+              "path": "ip/trademarks/usage-policies.md"
+            }
+          ]
+        },
+        {
+          "text": "Third-Party Licenses",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "ip/third-party-licenses",
+              "isIndex": true
+            },
+            {
+              "text": "Open Source Inventory",
+              "path": "ip/third-party-licenses/open-source.md"
+            },
+            {
+              "text": "License Compliance Matrix",
+              "path": "ip/third-party-licenses/compliance.md"
+            },
+            {
+              "text": "Commercial Licenses",
+              "path": "ip/third-party-licenses/commercial.md"
+            }
+          ]
+        },
+        {
+          "text": "IP Procedures",
+          "items": [
+            {
+              "text": "Innovation Disclosure (F-IP-005)",
+              "path": "ip/procedures/innovation-disclosure.md"
+            },
+            {
+              "text": "IP Review Workflow",
+              "path": "ip/procedures/review-workflow.md"
+            },
+            {
+              "text": "IP Audit Procedures",
+              "path": "ip/procedures/audit.md"
+            }
+          ]
+        },
+        {
+          "text": "Contribution Guidelines",
+          "items": [
+            {
+              "text": "Contributor Agreements",
+              "path": "ip/contributions/agreements.md"
+            },
+            {
+              "text": "IP Assignment",
+              "path": "ip/contributions/assignment.md"
+            },
+            {
+              "text": "Review Process",
+              "path": "ip/contributions/review.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Development Standards",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "development-standards",
+          "isIndex": true
+        },
+        {
+          "text": "Coding Standards",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "development-standards/coding",
+              "isIndex": true
+            },
+            {
+              "text": "JavaScript Style Guide",
+              "path": "development-standards/coding/javascript.md"
+            },
+            {
+              "text": "Python Style Guide",
+              "path": "development-standards/coding/python.md"
+            },
+            {
+              "text": "C# Style Guide",
+              "path": "development-standards/coding/csharp.md"
+            },
+            {
+              "text": "Naming Conventions",
+              "path": "development-standards/coding/naming.md"
+            },
+            {
+              "text": "Best Practices",
+              "path": "development-standards/coding/best-practices.md"
+            }
+          ]
+        },
+        {
+          "text": "Version Control Standards",
+          "items": [
+            {
+              "text": "Git Workflow",
+              "path": "development-standards/git/workflow.md"
+            },
+            {
+              "text": "Branching Strategy",
+              "path": "development-standards/git/branching.md"
+            },
+            {
+              "text": "Commit Messages",
+              "path": "development-standards/git/commits.md"
+            },
+            {
+              "text": "Pull Request Guidelines",
+              "path": "development-standards/git/pull-requests.md"
+            },
+            {
+              "text": "Code Review Checklist",
+              "path": "development-standards/git/code-review.md"
+            }
+          ]
+        },
+        {
+          "text": "Testing Standards",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "development-standards/testing",
+              "isIndex": true
+            },
+            {
+              "text": "Unit Testing (80% Coverage)",
+              "path": "development-standards/testing/unit-tests.md"
+            },
+            {
+              "text": "Integration Testing",
+              "path": "development-standards/testing/integration-tests.md"
+            },
+            {
+              "text": "E2E Testing",
+              "path": "development-standards/testing/e2e-tests.md"
+            },
+            {
+              "text": "Performance Testing",
+              "path": "development-standards/testing/performance-tests.md"
+            },
+            {
+              "text": "Security Testing",
+              "path": "development-standards/testing/security-tests.md"
+            }
+          ]
+        },
+        {
+          "text": "Security Standards",
+          "items": [
+            {
+              "text": "OWASP Top 10 Compliance",
+              "path": "development-standards/security/owasp.md"
+            },
+            {
+              "text": "Secure Coding Practices",
+              "path": "development-standards/security/secure-coding.md"
+            },
+            {
+              "text": "Authentication Patterns",
+              "path": "development-standards/security/authentication.md"
+            },
+            {
+              "text": "Data Encryption",
+              "path": "development-standards/security/encryption.md"
+            }
+          ]
+        },
+        {
+          "text": "Quality Assurance",
+          "items": [
+            {
+              "text": "QA Process",
+              "path": "development-standards/qa/process.md"
+            },
+            {
+              "text": "Bug Reporting",
+              "path": "development-standards/qa/bug-reporting.md"
+            },
+            {
+              "text": "Test Case Management",
+              "path": "development-standards/qa/test-cases.md"
+            },
+            {
+              "text": "Definition of Done",
+              "path": "development-standards/qa/definition-of-done.md"
+            }
+          ]
+        },
+        {
+          "text": "Performance Standards",
+          "path": "development-standards/performance.md"
+        }
+      ]
+    },
+    {
+      "text": "Operations & Deployment",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "operations",
+          "isIndex": true
+        },
+        {
+          "text": "Deployment Guide",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "operations/deployment",
+              "isIndex": true
+            },
+            {
+              "text": "Environment Setup",
+              "path": "operations/deployment/environment-setup.md"
+            },
+            {
+              "text": "Configuration Management",
+              "path": "operations/deployment/configuration.md"
+            },
+            {
+              "text": "Rollback Procedures",
+              "path": "operations/deployment/rollback.md"
+            },
+            {
+              "text": "Blue-Green Deployment",
+              "path": "operations/deployment/blue-green.md"
+            }
+          ]
+        },
+        {
+          "text": "Monitoring & Observability",
+          "items": [
+            {
+              "text": "Application Monitoring",
+              "path": "operations/monitoring/application.md"
+            },
+            {
+              "text": "Log Aggregation",
+              "path": "operations/monitoring/logging.md"
+            },
+            {
+              "text": "Performance Monitoring",
+              "path": "operations/monitoring/performance.md"
+            },
+            {
+              "text": "Dashboards",
+              "path": "operations/monitoring/dashboards.md"
+            }
+          ]
+        },
+        {
+          "text": "Incident Management",
+          "items": [
+            {
+              "text": "Incident Response",
+              "path": "operations/incident-management/response.md"
+            },
+            {
+              "text": "On-Call Rotation",
+              "path": "operations/incident-management/on-call.md"
+            },
+            {
+              "text": "Incident Classification",
+              "path": "operations/incident-management/classification.md"
+            },
+            {
+              "text": "Post-Incident Review",
+              "path": "operations/incident-management/post-incident.md"
+            }
+          ]
+        },
+        {
+          "text": "Maintenance & Support",
+          "items": [
+            {
+              "text": "Maintenance Procedures",
+              "path": "operations/maintenance/procedures.md"
+            },
+            {
+              "text": "Backup & Restore",
+              "path": "operations/maintenance/backup.md"
+            },
+            {
+              "text": "Security Patching",
+              "path": "operations/maintenance/patching.md"
+            }
+          ]
+        },
+        {
+          "text": "Disaster Recovery",
+          "items": [
+            {
+              "text": "DR Plan",
+              "path": "operations/disaster-recovery/plan.md"
+            },
+            {
+              "text": "Recovery Procedures",
+              "path": "operations/disaster-recovery/procedures.md"
+            },
+            {
+              "text": "DR Testing",
+              "path": "operations/disaster-recovery/testing.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "User Documentation",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "user-guide",
+          "isIndex": true
+        },
+        {
+          "text": "End User Guide",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "User Manual",
+              "path": "user-guide/manual.md"
+            },
+            {
+              "text": "Feature Tutorials",
+              "path": "user-guide/tutorials.md"
+            },
+            {
+              "text": "Video Guides",
+              "path": "user-guide/videos.md"
+            },
+            {
+              "text": "FAQ",
+              "path": "user-guide/faq.md"
+            }
+          ]
+        },
+        {
+          "text": "Administrator Guide",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "System Administration",
+              "path": "user-guide/admin/system.md"
+            },
+            {
+              "text": "User Management",
+              "path": "user-guide/admin/user-management.md"
+            },
+            {
+              "text": "Configuration",
+              "path": "user-guide/admin/configuration.md"
+            },
+            {
+              "text": "Reporting",
+              "path": "user-guide/admin/reporting.md"
+            },
+            {
+              "text": "Troubleshooting",
+              "path": "user-guide/admin/troubleshooting.md"
+            }
+          ]
+        },
+        {
+          "text": "Integration Guide",
+          "isLazyExpandable": true,
+          "items": [
+            {
+              "text": "Overview",
+              "path": "user-guide/integration",
+              "isIndex": true
+            },
+            {
+              "text": "LMS Integration",
+              "path": "user-guide/integration/lms.md"
+            },
+            {
+              "text": "SSO Configuration",
+              "path": "user-guide/integration/sso.md"
+            },
+            {
+              "text": "Data Import/Export",
+              "path": "user-guide/integration/data-transfer.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Compliance & Governance",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "compliance",
+          "isIndex": true
+        },
+        {
+          "text": "Regulatory Compliance",
+          "items": [
+            {
+              "text": "UAE PDPL Compliance",
+              "path": "compliance/regulatory/uae-pdpl.md"
+            },
+            {
+              "text": "Egypt Law 151/2020",
+              "path": "compliance/regulatory/egypt-law.md"
+            },
+            {
+              "text": "GDPR Compliance",
+              "path": "compliance/regulatory/gdpr.md"
+            },
+            {
+              "text": "Educational Standards",
+              "path": "compliance/regulatory/education-standards.md"
+            }
+          ]
+        },
+        {
+          "text": "Data Privacy",
+          "items": [
+            {
+              "text": "Privacy Policy",
+              "path": "compliance/privacy/policy.md"
+            },
+            {
+              "text": "Data Collection",
+              "path": "compliance/privacy/data-collection.md"
+            },
+            {
+              "text": "User Consent",
+              "path": "compliance/privacy/consent.md"
+            },
+            {
+              "text": "Data Subject Rights",
+              "path": "compliance/privacy/subject-rights.md"
+            }
+          ]
+        },
+        {
+          "text": "Accessibility",
+          "items": [
+            {
+              "text": "WCAG 2.1 AA Compliance",
+              "path": "compliance/accessibility/wcag.md"
+            },
+            {
+              "text": "Testing Procedures",
+              "path": "compliance/accessibility/testing.md"
+            },
+            {
+              "text": "Screen Reader Support",
+              "path": "compliance/accessibility/screen-readers.md"
+            }
+          ]
+        },
+        {
+          "text": "Localization",
+          "items": [
+            {
+              "text": "Arabic Language Support",
+              "path": "compliance/localization/arabic.md"
+            },
+            {
+              "text": "RTL Implementation",
+              "path": "compliance/localization/rtl.md"
+            },
+            {
+              "text": "Translation Management",
+              "path": "compliance/localization/translation.md"
+            }
+          ]
+        },
+        {
+          "text": "Security Compliance",
+          "items": [
+            {
+              "text": "Security Policies",
+              "path": "compliance/security/policies.md"
+            },
+            {
+              "text": "Access Control",
+              "path": "compliance/security/access-control.md"
+            },
+            {
+              "text": "Audit Reports",
+              "path": "compliance/security/audits.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Processes & Workflows",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "processes",
+          "isIndex": true
+        },
+        {
+          "text": "Development Workflow",
+          "items": [
+            {
+              "text": "Sprint Planning",
+              "path": "processes/development/sprint-planning.md"
+            },
+            {
+              "text": "Daily Standup",
+              "path": "processes/development/standup.md"
+            },
+            {
+              "text": "Sprint Review",
+              "path": "processes/development/sprint-review.md"
+            },
+            {
+              "text": "Retrospective",
+              "path": "processes/development/retrospective.md"
+            }
+          ]
+        },
+        {
+          "text": "Code Review Process",
+          "items": [
+            {
+              "text": "Review Guidelines",
+              "path": "processes/code-review/guidelines.md"
+            },
+            {
+              "text": "Review Checklist",
+              "path": "processes/code-review/checklist.md"
+            },
+            {
+              "text": "Approval Requirements",
+              "path": "processes/code-review/approvals.md"
+            }
+          ]
+        },
+        {
+          "text": "Change Management",
+          "items": [
+            {
+              "text": "Change Request Process",
+              "path": "processes/change-management/request.md"
+            },
+            {
+              "text": "Impact Assessment",
+              "path": "processes/change-management/impact.md"
+            },
+            {
+              "text": "Approval Workflow",
+              "path": "processes/change-management/approval.md"
+            }
+          ]
+        },
+        {
+          "text": "Release Management",
+          "items": [
+            {
+              "text": "Release Planning",
+              "path": "processes/release-management/planning.md"
+            },
+            {
+              "text": "Version Numbering",
+              "path": "processes/release-management/versioning.md"
+            },
+            {
+              "text": "Release Notes",
+              "path": "processes/release-management/release-notes.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Tools & Resources",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "tools",
+          "isIndex": true
+        },
+        {
+          "text": "Development Tools",
+          "items": [
+            {
+              "text": "IDE Setup",
+              "path": "tools/development/ide.md"
+            },
+            {
+              "text": "Plugins & Extensions",
+              "path": "tools/development/plugins.md"
+            },
+            {
+              "text": "Local Environment",
+              "path": "tools/development/local-env.md"
+            },
+            {
+              "text": "Debugging Tools",
+              "path": "tools/development/debugging.md"
+            }
+          ]
+        },
+        {
+          "text": "Collaboration Tools",
+          "items": [
+            {
+              "text": "Azure DevOps Usage",
+              "path": "tools/collaboration/azure-devops.md"
+            },
+            {
+              "text": "Jira Guidelines",
+              "path": "tools/collaboration/jira.md"
+            },
+            {
+              "text": "Microsoft Teams",
+              "path": "tools/collaboration/teams.md"
+            }
+          ]
+        },
+        {
+          "text": "Templates & Checklists",
+          "items": [
+            {
+              "text": "Document Templates",
+              "path": "tools/templates/documents.md"
+            },
+            {
+              "text": "Code Templates",
+              "path": "tools/templates/code.md"
+            },
+            {
+              "text": "Review Checklists",
+              "path": "tools/templates/checklists.md"
+            }
+          ]
+        },
+        {
+          "text": "External Resources",
+          "items": [
+            {
+              "text": "Technology Documentation",
+              "path": "tools/resources/tech-docs.md"
+            },
+            {
+              "text": "Training Materials",
+              "path": "tools/resources/training.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Team & Contacts",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "team",
+          "isIndex": true
+        },
+        {
+          "text": "Team Structure",
+          "path": "team/structure.md"
+        },
+        {
+          "text": "Roles & Responsibilities",
+          "path": "team/roles.md"
+        },
+        {
+          "text": "Contact Directory",
+          "path": "team/contacts.md"
+        },
+        {
+          "text": "Communication Channels",
+          "path": "team/communication.md"
+        },
+        {
+          "text": "Onboarding",
+          "items": [
+            {
+              "text": "New Member Guide",
+              "path": "team/onboarding/guide.md"
+            },
+            {
+              "text": "Access Requests",
+              "path": "team/onboarding/access.md"
+            },
+            {
+              "text": "Training Materials",
+              "path": "team/onboarding/training.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Knowledge Base",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "knowledge-base",
+          "isIndex": true
+        },
+        {
+          "text": "Troubleshooting",
+          "items": [
+            {
+              "text": "Common Issues",
+              "path": "knowledge-base/troubleshooting/common-issues.md"
+            },
+            {
+              "text": "Debug Procedures",
+              "path": "knowledge-base/troubleshooting/debug.md"
+            },
+            {
+              "text": "Error Reference",
+              "path": "knowledge-base/troubleshooting/errors.md"
+            }
+          ]
+        },
+        {
+          "text": "Best Practices",
+          "items": [
+            {
+              "text": "Design Patterns",
+              "path": "knowledge-base/best-practices/design-patterns.md"
+            },
+            {
+              "text": "Architecture Patterns",
+              "path": "knowledge-base/best-practices/architecture.md"
+            },
+            {
+              "text": "Performance Optimization",
+              "path": "knowledge-base/best-practices/performance.md"
+            }
+          ]
+        },
+        {
+          "text": "Lessons Learned",
+          "items": [
+            {
+              "text": "Post-Mortems",
+              "path": "knowledge-base/lessons-learned/post-mortems.md"
+            },
+            {
+              "text": "Retrospectives",
+              "path": "knowledge-base/lessons-learned/retrospectives.md"
+            },
+            {
+              "text": "Improvements",
+              "path": "knowledge-base/lessons-learned/improvements.md"
+            }
+          ]
+        },
+        {
+          "text": "Case Studies",
+          "path": "knowledge-base/case-studies.md"
+        }
+      ]
+    },
+    {
+      "text": "Reference",
+      "items": [
+        {
+          "text": "Overview",
+          "path": "reference",
+          "isIndex": true
+        },
+        {
+          "text": "Glossary",
+          "path": "reference/glossary.md"
+        },
+        {
+          "text": "Version History",
+          "items": [
+            {
+              "text": "Platform Changelog",
+              "path": "reference/version-history/changelog.md"
+            },
+            {
+              "text": "API Version History",
+              "path": "reference/version-history/api.md"
+            },
+            {
+              "text": "Breaking Changes",
+              "path": "reference/version-history/breaking-changes.md"
+            }
+          ]
+        },
+        {
+          "text": "Dependencies",
+          "items": [
+            {
+              "text": "Technology Stack",
+              "path": "reference/dependencies/tech-stack.md"
+            },
+            {
+              "text": "Library Versions",
+              "path": "reference/dependencies/libraries.md"
+            },
+            {
+              "text": "Service Dependencies",
+              "path": "reference/dependencies/services.md"
+            }
+          ]
+        },
+        {
+          "text": "Metrics & KPIs",
+          "items": [
+            {
+              "text": "Performance Metrics",
+              "path": "reference/metrics/performance.md"
+            },
+            {
+              "text": "Quality Metrics",
+              "path": "reference/metrics/quality.md"
+            },
+            {
+              "text": "Usage Statistics",
+              "path": "reference/metrics/usage.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
