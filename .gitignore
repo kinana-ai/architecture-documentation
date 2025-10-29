@@ -1,0 +1,48 @@
+# KINANA Documentation .gitignore
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Backup files
+*.bak
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Build artifacts
+_build/
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Confidential files (if accidentally added)
+*.secret
+*.private
+**/secrets/
+
+# Local configuration
+.env
+.env.local
