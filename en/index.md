@@ -47,4 +47,4 @@ Kinana is an all-in-one content hub platform designed to streamline educational 
 
 **Documentation Version:** 1.0  
 **Last Updated:** October 2025  
-**Powered by:** Volosoft Docs Module | **Source:** GitHub (Markdown)
+**Powered by:** Ibtikar.io | **Source:** GitHub (Markdown)
