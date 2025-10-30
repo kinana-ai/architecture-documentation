@@ -14,34 +14,34 @@ Kinana is an all-in-one content hub platform designed to streamline educational 
 ## Documentation Sections
 
 ### Getting Started
-- **[Home](en/home/index.md)** - Welcome, what's new, getting started guides, and quick start information
+- **[Home](/home/index.md)** - Welcome, what's new, getting started guides, and quick start information
 
 ### Platform Overview
-- **[Architecture](en/architecture/)** - System architecture, data architecture, and security design
-- **[Technical Documentation](en/technical/)** - API, frontend, backend, database, and DevOps technical details
+- **[Architecture](/architecture/)** - System architecture, data architecture, and security design
+- **[Technical Documentation](/technical/)** - API, frontend, backend, database, and DevOps technical details
 
 ### Standards & Best Practices
-- **[Source Documentation Standards](en/standards/)** - Code documentation, file headers, and ADR standards
-- **[Development Standards](en/development-standards/)** - Coding standards, Git workflows, testing, security, and QA practices
+- **[Source Documentation Standards](/standards/)** - Code documentation, file headers, and ADR standards
+- **[Development Standards](/development-standards/)** - Coding standards, Git workflows, testing, security, and QA practices
 
 ### Legal & Intellectual Property
-- **[Intellectual Property](en/ip/)** - Copyright, patents, trade secrets, trademarks, and licensing information
+- **[Intellectual Property](/ip/)** - Copyright, patents, trade secrets, trademarks, and licensing information
 
 ### Operations & Maintenance
-- **[Operations](en/operations/)** - Deployment, monitoring, incident management, and disaster recovery
-- **[Compliance & Governance](en/compliance/)** - Regulatory compliance, privacy, accessibility, and security policies
+- **[Operations](/operations/)** - Deployment, monitoring, incident management, and disaster recovery
+- **[Compliance & Governance](/compliance/)** - Regulatory compliance, privacy, accessibility, and security policies
 
 ### Development Workflows
-- **[Processes & Workflows](en/processes/)** - Development processes, code review, change management, and release procedures
+- **[Processes & Workflows](/processes/)** - Development processes, code review, change management, and release procedures
 
 ### User Resources
-- **[User Guide](en/user-guide/)** - Administrator guides and platform integration documentation
-- **[Tools & Resources](en/tools/)** - Development tools, collaboration platforms, templates, and resources
-- **[Knowledge Base](en/knowledge-base/)** - Troubleshooting guides, best practices, and lessons learned
+- **[User Guide](/user-guide/)** - Administrator guides and platform integration documentation
+- **[Tools & Resources](/tools/)** - Development tools, collaboration platforms, templates, and resources
+- **[Knowledge Base](/knowledge-base/)** - Troubleshooting guides, best practices, and lessons learned
 
 ### Reference & Team
-- **[Team & Contacts](en/team/)** - Team information and onboarding resources
-- **[Reference](en/reference/)** - Version history, dependencies, and platform metrics
+- **[Team & Contacts](/team/)** - Team information and onboarding resources
+- **[Reference](/reference/)** - Version history, dependencies, and platform metrics
 
 ---
 
