@@ -4,7 +4,7 @@ Welcome to the KINANA Platform - your comprehensive content hub for educational 
 
 ## What is KINANA?
 
-KINANA is an innovative all-in-one platform designed to revolutionize how educational institutions, makers, and STEM enthusiasts manage content and teach robotics programming. By seamlessly integrating content management, media hosting, and hands-on coding experiences, KINANA provides everything you need in one unified platform.
+KINANA is an innovative all-in-one platform designed to revolutionize how educational institutions, makers, and STEM enthusiasts manage content of various kinds and deliver it to their audience online and in a safe and easy to use way. By seamlessly integrating content management, media hosting, and hands-on coding experiences, KINANA provides everything you need in one unified platform.
 
 ## Platform Capabilities
 
