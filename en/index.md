@@ -14,7 +14,7 @@ Kinana is an all-in-one content hub platform designed to streamline educational 
 ## Documentation Sections
 
 ### Getting Started
-- **[Home](en/home/)** - Welcome, what's new, getting started guides, and quick start information
+- **[Home](en/home/index.md)** - Welcome, what's new, getting started guides, and quick start information
 
 ### Platform Overview
 - **[Architecture](en/architecture/)** - System architecture, data architecture, and security design
