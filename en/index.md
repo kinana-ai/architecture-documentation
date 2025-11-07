@@ -2,15 +2,6 @@
 
 Welcome to Kinana - your comprehensive content hub platform for educational resources, media management, and visual coding for robotics and STEM education.
 
-## What is Kinana?
-
-Kinana is an all-in-one content hub platform designed to streamline educational content delivery and hands-on learning experiences. The platform integrates:
-
-- **📚 Libraries** - Manage digital document collections (PDFs, EPUB, Office documents)
-- **🎥 Videos** - Host uploaded videos or link online content for seamless viewing
-- **🎙️ Podcasts** - Stream MP3 files or integrate online streaming URLs
-- **🔧 Brokkly Visual Coding Platform** - Visual programming environment with activities library supporting our robotics/STEM kits (Maker Kit, Maker RC Car Kit, Discovery Kit V3, Dualsense Kit)
-
 ## Documentation Sections
 
 ### Getting Started
