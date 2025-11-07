@@ -922,7 +922,7 @@
       "items": [
         {
           "text": "Overview",
-          "path": "processes",
+          "path": "processes/development/Overview.md",
           "isIndex": true
         },
         {
@@ -930,19 +930,19 @@
           "items": [
             {
               "text": "Sprint Planning",
-              "path": "processes/development/sprint-planning.md"
+              "path": "processes/development/Development_Workflow.md"
             },
             {
               "text": "Daily Standup",
-              "path": "processes/development/standup.md"
+              "path": "processes/development/Development_Workflow.md"
             },
             {
               "text": "Sprint Review",
-              "path": "processes/development/sprint-review.md"
+              "path": "processes/development/Development_Workflow.md"
             },
             {
               "text": "Retrospective",
-              "path": "processes/development/retrospective.md"
+              "path": "processes/development/Development_Workflow.md"
             }
           ]
         },
@@ -951,15 +951,15 @@
           "items": [
             {
               "text": "Review Guidelines",
-              "path": "processes/code-review/guidelines.md"
+              "path": "processes/code-review/Code_Review_Process.md"
             },
             {
               "text": "Review Checklist",
-              "path": "processes/code-review/checklist.md"
+              "path": "processes/code-review/Code_Review_Process.md"
             },
             {
               "text": "Approval Requirements",
-              "path": "processes/code-review/approvals.md"
+              "path": "processes/code-review/Code_Review_Process.md"
             }
           ]
         },
@@ -968,15 +968,15 @@
           "items": [
             {
               "text": "Change Request Process",
-              "path": "processes/change-management/request.md"
+              "path": "processes/change-management/Change_Management.md"
             },
             {
               "text": "Impact Assessment",
-              "path": "processes/change-management/impact.md"
+              "path": "processes/change-management/Change_Management.md"
             },
             {
               "text": "Approval Workflow",
-              "path": "processes/change-management/approval.md"
+              "path": "processes/change-management/Change_Management.md"
             }
           ]
         },
@@ -985,15 +985,15 @@
           "items": [
             {
               "text": "Release Planning",
-              "path": "processes/release-management/planning.md"
+              "path": "processes/release-management/Release_Management.md"
             },
             {
               "text": "Version Numbering",
-              "path": "processes/release-management/versioning.md"
+              "path": "processes/release-management/Release_Management.md"
             },
             {
               "text": "Release Notes",
-              "path": "processes/release-management/release-notes.md"
+              "path": "processes/release-management/Release_Management.md"
             }
           ]
         }
@@ -1034,10 +1034,6 @@
             {
               "text": "Azure DevOps Usage",
               "path": "tools/collaboration/azure-devops.md"
-            },
-            {
-              "text": "Jira Guidelines",
-              "path": "tools/collaboration/jira.md"
             },
             {
               "text": "Microsoft Teams",
@@ -1115,136 +1111,6 @@
             {
               "text": "Training Materials",
               "path": "team/onboarding/training.md"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "Knowledge Base",
-      "items": [
-        {
-          "text": "Overview",
-          "path": "knowledge-base",
-          "isIndex": true
-        },
-        {
-          "text": "Troubleshooting",
-          "items": [
-            {
-              "text": "Common Issues",
-              "path": "knowledge-base/troubleshooting/common-issues.md"
-            },
-            {
-              "text": "Debug Procedures",
-              "path": "knowledge-base/troubleshooting/debug.md"
-            },
-            {
-              "text": "Error Reference",
-              "path": "knowledge-base/troubleshooting/errors.md"
-            }
-          ]
-        },
-        {
-          "text": "Best Practices",
-          "items": [
-            {
-              "text": "Design Patterns",
-              "path": "knowledge-base/best-practices/design-patterns.md"
-            },
-            {
-              "text": "Architecture Patterns",
-              "path": "knowledge-base/best-practices/architecture.md"
-            },
-            {
-              "text": "Performance Optimization",
-              "path": "knowledge-base/best-practices/performance.md"
-            }
-          ]
-        },
-        {
-          "text": "Lessons Learned",
-          "items": [
-            {
-              "text": "Post-Mortems",
-              "path": "knowledge-base/lessons-learned/post-mortems.md"
-            },
-            {
-              "text": "Retrospectives",
-              "path": "knowledge-base/lessons-learned/retrospectives.md"
-            },
-            {
-              "text": "Improvements",
-              "path": "knowledge-base/lessons-learned/improvements.md"
-            }
-          ]
-        },
-        {
-          "text": "Case Studies",
-          "path": "knowledge-base/case-studies.md"
-        }
-      ]
-    },
-    {
-      "text": "Reference",
-      "items": [
-        {
-          "text": "Overview",
-          "path": "reference",
-          "isIndex": true
-        },
-        {
-          "text": "Glossary",
-          "path": "reference/glossary.md"
-        },
-        {
-          "text": "Version History",
-          "items": [
-            {
-              "text": "Platform Changelog",
-              "path": "reference/version-history/changelog.md"
-            },
-            {
-              "text": "API Version History",
-              "path": "reference/version-history/api.md"
-            },
-            {
-              "text": "Breaking Changes",
-              "path": "reference/version-history/breaking-changes.md"
-            }
-          ]
-        },
-        {
-          "text": "Dependencies",
-          "items": [
-            {
-              "text": "Technology Stack",
-              "path": "reference/dependencies/tech-stack.md"
-            },
-            {
-              "text": "Library Versions",
-              "path": "reference/dependencies/libraries.md"
-            },
-            {
-              "text": "Service Dependencies",
-              "path": "reference/dependencies/services.md"
-            }
-          ]
-        },
-        {
-          "text": "Metrics & KPIs",
-          "items": [
-            {
-              "text": "Performance Metrics",
-              "path": "reference/metrics/performance.md"
-            },
-            {
-              "text": "Quality Metrics",
-              "path": "reference/metrics/quality.md"
-            },
-            {
-              "text": "Usage Statistics",
-              "path": "reference/metrics/usage.md"
             }
           ]
         }
