@@ -544,7 +544,6 @@ helm install kinana-release ./charts/kinana
 
 - CUDA Toolkit
 - PyTorch or TensorFlow
-- Jupyter Notebook for experimentation
 - Docker for model deployment
 
 **Usage**: Local AI model development before Azure integration
