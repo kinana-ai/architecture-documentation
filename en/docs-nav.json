@@ -712,87 +712,6 @@
       ]
     },
     {
-      "text": "User Documentation",
-      "items": [
-        {
-          "text": "Overview",
-          "path": "user-guide",
-          "isIndex": true
-        },
-        {
-          "text": "End User Guide",
-          "isLazyExpandable": true,
-          "items": [
-            {
-              "text": "User Manual",
-              "path": "user-guide/manual.md"
-            },
-            {
-              "text": "Feature Tutorials",
-              "path": "user-guide/tutorials.md"
-            },
-            {
-              "text": "Video Guides",
-              "path": "user-guide/videos.md"
-            },
-            {
-              "text": "FAQ",
-              "path": "user-guide/faq.md"
-            }
-          ]
-        },
-        {
-          "text": "Administrator Guide",
-          "isLazyExpandable": true,
-          "items": [
-            {
-              "text": "System Administration",
-              "path": "user-guide/admin/system.md"
-            },
-            {
-              "text": "User Management",
-              "path": "user-guide/admin/user-management.md"
-            },
-            {
-              "text": "Configuration",
-              "path": "user-guide/admin/configuration.md"
-            },
-            {
-              "text": "Reporting",
-              "path": "user-guide/admin/reporting.md"
-            },
-            {
-              "text": "Troubleshooting",
-              "path": "user-guide/admin/troubleshooting.md"
-            }
-          ]
-        },
-        {
-          "text": "Integration Guide",
-          "isLazyExpandable": true,
-          "items": [
-            {
-              "text": "Overview",
-              "path": "user-guide/integration",
-              "isIndex": true
-            },
-            {
-              "text": "LMS Integration",
-              "path": "user-guide/integration/lms.md"
-            },
-            {
-              "text": "SSO Configuration",
-              "path": "user-guide/integration/sso.md"
-            },
-            {
-              "text": "Data Import/Export",
-              "path": "user-guide/integration/data-transfer.md"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "text": "Compliance & Governance",
       "items": [
         {
@@ -1114,23 +1033,6 @@
         {
           "text": "Communication Channels",
           "path": "team/communication.md"
-        },
-        {
-          "text": "Onboarding",
-          "items": [
-            {
-              "text": "New Member Guide",
-              "path": "team/onboarding/guide.md"
-            },
-            {
-              "text": "Access Requests",
-              "path": "team/onboarding/access.md"
-            },
-            {
-              "text": "Training Materials",
-              "path": "team/onboarding/training.md"
-            }
-          ]
         }
       ]
     }
