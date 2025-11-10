@@ -908,19 +908,19 @@
           "items": [
             {
               "text": "Sprint Planning",
-              "path": "processes/development/Development_Workflow.md"
+              "path": "processes/development/Development_Workflow.md#sprint-planning"
             },
             {
               "text": "Daily Standup",
-              "path": "processes/development/Development_Workflow.md"
+              "path": "processes/development/Development_Workflow.md#daily-standup"
             },
             {
               "text": "Sprint Review",
-              "path": "processes/development/Development_Workflow.md"
+              "path": "processes/development/Development_Workflow.md#sprint-review"
             },
             {
               "text": "Retrospective",
-              "path": "processes/development/Development_Workflow.md"
+              "path": "processes/development/Development_Workflow.md#development-environment-workflow"
             }
           ]
         },
