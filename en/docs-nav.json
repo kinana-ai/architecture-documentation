@@ -1030,19 +1030,19 @@
           "items": [
             {
               "text": "IDE Setup",
-              "path": "tools/development/ide.md"
+              "path": "tools/development/Development_Tools.md"
             },
             {
               "text": "Plugins & Extensions",
-              "path": "tools/development/plugins.md"
+              "path": "tools/development/Development_Tools.md"
             },
             {
               "text": "Local Environment",
-              "path": "tools/development/local-env.md"
+              "path": "tools/development/Development_Tools.md"
             },
             {
               "text": "Debugging Tools",
-              "path": "tools/development/debugging.md"
+              "path": "tools/development/Development_Tools.md"
             }
           ]
         },
@@ -1051,11 +1051,11 @@
           "items": [
             {
               "text": "Azure DevOps Usage",
-              "path": "tools/collaboration/azure-devops.md"
+              "path": "tools/collaboration/Collaboration_Tools.md"
             },
             {
               "text": "Microsoft Teams",
-              "path": "tools/collaboration/teams.md"
+              "path": "tools/collaboration/Collaboration_Tools.md"
             }
           ]
         },
@@ -1064,15 +1064,15 @@
           "items": [
             {
               "text": "Document Templates",
-              "path": "tools/templates/documents.md"
+              "path": "tools/templates/Templates_Checklists.md"
             },
             {
               "text": "Code Templates",
-              "path": "tools/templates/code.md"
+              "path": "tools/templates/Templates_Checklists.md"
             },
             {
               "text": "Review Checklists",
-              "path": "tools/templates/checklists.md"
+              "path": "tools/templates/Templates_Checklists.md"
             }
           ]
         },
@@ -1081,11 +1081,11 @@
           "items": [
             {
               "text": "Technology Documentation",
-              "path": "tools/resources/tech-docs.md"
+              "path": "tools/resources/External_Resources.md"
             },
             {
               "text": "Training Materials",
-              "path": "tools/resources/training.md"
+              "path": "tools/resources/External_Resources.md"
             }
           ]
         }
