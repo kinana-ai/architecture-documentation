@@ -529,12 +529,6 @@ kubectl logs pod-name
 kubectl exec -it pod-name -- /bin/bash
 ```
 
-**Helm** (Kubernetes package manager):
-
-```bash
-helm install kinana-release ./charts/kinana
-```
-
 ### AI Development (Ubuntu Workstation)
 
 **Hardware**: NVIDIA 4090 GPU  
