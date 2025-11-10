@@ -8,33 +8,26 @@ This document establishes the **framework** for change management that will be i
 
 ---
 
-## Overview
-
-Change management ensures controlled, documented modifications to production systems while minimizing risk to platform stability and user experience.
-
-**Applicability**: These processes become active once Kinana v1.0 is released to production.
-
----
-
 ## Change Request Process
 
 ### Change Categories
 
-| Category | Definition | Approval Required |
-|----------|-----------|-------------------|
-| **Standard Change** | Low-risk, pre-approved changes (e.g., minor bug fixes, content updates) | Automated via sprint process |
-| **Normal Change** | Typical feature additions or non-emergency fixes | CAB review required |
-| **Emergency Change** | Critical fixes for production incidents | Expedited approval |
+| Category             | Definition                                                              | Approval Required            |
+| -------------------- | ----------------------------------------------------------------------- | ---------------------------- |
+| **Standard Change**  | Low-risk, pre-approved changes (e.g., minor bug fixes, content updates) | Automated via sprint process |
+| **Normal Change**    | Typical feature additions or non-emergency fixes                        | management review required   |
+| **Emergency Change** | Critical fixes for production incidents                                 | Expedited approval           |
 
 ### Change Request Workflow (Production)
 
 ```
-Identification → Documentation → Assessment → Approval → Implementation → Review
+Identify → Document → Assess → Approve → Implement → Review
 ```
 
 #### 1. Change Identification
 
 Changes originate from:
+
 - Sprint planning (planned features)
 - Production incidents (emergency fixes)
 - User feedback (enhancements)
@@ -45,28 +38,36 @@ Changes originate from:
 All production changes require a Change Request (CR) in GitHub Issues with label: `change-request`
 
 **Required Information**:
+
 ```markdown
 ## Change Summary
+
 Brief description of proposed change
 
 ## Business Justification
+
 Why this change is needed
 
 ## Risk Assessment
+
 See Impact Assessment section below
 
 ## Implementation Plan
+
 - Steps to implement
 - Rollback plan
 - Testing approach
 
 ## Affected Components
+
 - List of microservices, sub-apps, or infrastructure affected
 
 ## Estimated Downtime
+
 Expected service interruption (if any)
 
 ## Target Deployment Window
+
 Preferred date/time for implementation
 ```
 
@@ -100,6 +101,7 @@ See dedicated section below.
 For each proposed change, evaluate:
 
 **Technical Impact**
+
 - [ ] Database schema changes required?
 - [ ] API contract modifications?
 - [ ] Infrastructure changes (Kubernetes, Azure resources)?
@@ -107,6 +109,7 @@ For each proposed change, evaluate:
 - [ ] Cross-microservice dependencies?
 
 **User Impact**
+
 - [ ] User-facing functionality changes?
 - [ ] UI/UX modifications?
 - [ ] Performance implications?
@@ -115,21 +118,21 @@ For each proposed change, evaluate:
 
 **Risk Level Assessment**
 
-| Risk Level | Criteria | Example |
-|------------|----------|---------|
-| **Low** | Single component, fully tested, easy rollback | UI text update, minor bug fix |
-| **Medium** | Multiple components, moderate testing, rollback available | New feature in single sub-app |
-| **High** | Cross-service changes, complex testing, difficult rollback | Shell architecture change |
-| **Critical** | Infrastructure changes, potential data loss, complex rollback | Database migration, Azure configuration |
+| Risk Level | Criteria                                                      | Example                                 |
+| ---------- | ------------------------------------------------------------- | --------------------------------------- |
+| **Low**    | Single component, fully tested, easy rollback                 | UI text update, minor bug fix           |
+| **Med**    | Multiple components, moderate testing, rollback available     | New feature in single sub-app           |
+| **High**   | Cross-service changes, complex testing, difficult rollback    | Shell architecture change               |
+| **Crit**   | Infrastructure changes, potential data loss, complex rollback | Database migration, Azure configuration |
 
 ### Risk Mitigation Requirements
 
-| Risk Level | Required Mitigations |
-|------------|---------------------|
-| Low | Standard testing in staging |
-| Medium | Extended staging validation, rollback plan documented |
-| High | CAB approval, phased rollout plan, monitoring dashboard |
-| Critical | Executive approval, maintenance window, dedicated monitoring, tested rollback procedure |
+| Risk Level | Required Mitigations                                                                    |
+| ---------- | --------------------------------------------------------------------------------------- |
+| Low        | Standard testing in staging                                                             |
+| Med        | Extended staging validation, rollback plan documented                                   |
+| High       | CAB approval, phased rollout plan, monitoring dashboard                                 |
+| Crit       | Executive approval, maintenance window, dedicated monitoring, tested rollback procedure |
 
 ---
 
@@ -138,36 +141,40 @@ For each proposed change, evaluate:
 ### Change Advisory Board (CAB)
 
 **Composition** (to be established at production launch):
+
 - Product Manager (Chair)
 - Solution Architect
 - QA / Project Manager
 - Senior Developer representative
 
-**Meeting Cadence**: 
+**Meeting Cadence**:
+
 - Weekly during sprint planning (for planned changes)
 - Ad-hoc for emergency changes
 
 ### Approval Matrix
 
-| Change Type | Risk Level | Approver(s) |
-|-------------|-----------|------------|
-| Standard | Low | Automated (part of sprint) |
-| Normal | Low | Solution Architect |
-| Normal | Medium | CAB consensus |
-| Normal | High | CAB + Product Manager |
-| Normal | Critical | Full team + executive sponsor |
-| Emergency | Any | Solution Architect + PM, retrospective CAB review |
+| Change Type | Risk Level | Approver(s)                                       |
+| ----------- | ---------- | ------------------------------------------------- |
+| Standard    | Low        | Automated (part of sprint)                        |
+| Normal      | Low        | Solution Architect                                |
+| Normal      | Medium     | CAB consensus                                     |
+| Normal      | High       | CAB + Product Manager                             |
+| Normal      | Critical   | Full team + executive sponsor                     |
+| Emergency   | Any        | Solution Architect + PM, retrospective CAB review |
 
 ### Emergency Change Procedure
 
 For production-impacting incidents:
 
 1. **Immediate Response**
+
    - Solution Architect and PM notified immediately
    - Quick assessment of fix approach
    - Verbal approval for critical fixes
 
 2. **Expedited Implementation**
+
    - Hotfix branch from production
    - Minimal review (Solution Architect only)
    - Deploy to production ASAP
@@ -179,51 +186,16 @@ For production-impacting incidents:
 
 ---
 
-## Change Management During Pre-Production
-
-### Current Practices (Pre-Production)
-
-Since Kinana is not yet in production:
-
-- **Approval**: Solution Architect approval for all merges to `dev` branch
-- **Deployment**: Coordinated during daily standups
-- **Testing**: QA validation in staging environment
-- **Documentation**: GitHub Issues and commit messages
-
-**No formal Change Advisory Board or Change Requests required** until production launch.
-
-### Transition to Production
-
-Before v1.0 production launch, the team will:
-
-1. **Establish CAB**: Define members and meeting schedule
-2. **Define Change Windows**: Identify low-risk deployment times
-3. **Create Templates**: GitHub Issue templates for Change Requests
-4. **Setup Monitoring**: Production monitoring and alerting
-5. **Document Rollback**: Standard rollback procedures for each component
-6. **User Communication**: Process for notifying users of changes
-
----
-
-## Production Deployment Windows
-
-**To be defined** at production launch. Typical considerations:
-
-- **Preferred Windows**: Off-peak hours (e.g., evenings, weekends)
-- **Restricted Windows**: During high-usage periods, exam periods, etc.
-- **Maintenance Windows**: Scheduled downtime for high-risk changes
-- **Emergency Exceptions**: Critical fixes deployed as needed
-
----
-
 ## Change Communication
 
 ### Internal Communication
+
 - Daily standups: Upcoming deployments
 - Sprint planning: Major changes planned
 - Email/Slack: Emergency change notifications
 
 ### External Communication (Production)
+
 - **Planned Downtime**: 48-hour advance notice to users
 - **Emergency Changes**: Status page updates during incident
 - **New Features**: Release notes and in-app notifications
@@ -236,6 +208,7 @@ Before v1.0 production launch, the team will:
 ### Standard Rollback
 
 For most changes:
+
 1. Revert deployment to previous container image (Kubernetes rollback)
 2. Restore database from backup if schema changed
 3. Notify team and users of rollback
@@ -244,6 +217,7 @@ For most changes:
 ### Database Rollback
 
 For schema changes:
+
 1. Execute tested down-migration scripts
 2. Verify data integrity
 3. Redeploy previous application version
@@ -252,6 +226,7 @@ For schema changes:
 ### Infrastructure Rollback
 
 For Kubernetes/Azure changes:
+
 1. Apply previous infrastructure-as-code configuration
 2. Verify service health
 3. Test critical user workflows
@@ -262,6 +237,7 @@ For Kubernetes/Azure changes:
 ## Continuous Improvement
 
 Change management processes will be reviewed during retrospectives and refined based on:
+
 - Incident frequency and root causes
 - Deployment success rates
 - User impact from changes
@@ -269,6 +245,6 @@ Change management processes will be reviewed during retrospectives and refined b
 
 ---
 
-*Last Updated: November 2025*  
-*Version: 1.0*  
-*Status: Framework defined, implementation pending production launch*
+_Last Updated: November 2025_  
+_Version: 1.0_  
+_Status: Framework defined, implementation pending production launch_

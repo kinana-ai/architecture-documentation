@@ -16,25 +16,29 @@ Sprint Planning → Daily Development → Sprint Review → Retrospective
 
 ## Sprint Planning
 
-**Frequency**: Bi-weekly (every 2 weeks)  
+**Frequency**: Bi-monthly (every 2 weeks)  
 **Duration**: 1-2 hours  
 **Participants**: Full team
 
 ### Purpose
+
 Prioritize and commit to work for the upcoming sprint based on product roadmap and technical requirements.
 
 ### Process
 
 1. **Backlog Review**
+
    - Product Manager presents prioritized features and technical debt items
    - Solution Architect identifies technical dependencies and architectural considerations
 
 2. **Task Breakdown**
+
    - Team collaboratively breaks down features into implementable tasks
    - Tasks are created as GitHub Issues with appropriate labels
    - Effort estimation (optional, team uses experience-based sizing)
 
 3. **Sprint Commitment**
+
    - Team commits to sprint backlog based on capacity
    - Tasks moved to "Sprint Backlog" column in GitHub Projects
 
@@ -43,6 +47,7 @@ Prioritize and commit to work for the upcoming sprint based on product roadmap a
    - Team discusses implementation approaches for high-risk items
 
 ### Outputs
+
 - Sprint backlog in GitHub Projects
 - Architectural decisions documented in relevant repos
 - Clear understanding of sprint goals
@@ -56,11 +61,13 @@ Prioritize and commit to work for the upcoming sprint based on product roadmap a
 **Format**: Synchronous (video/in-person)
 
 ### Purpose
+
 Coordinate daily activities, identify blockers, and agree on deployment timing.
 
 ### Format
 
 Each team member shares:
+
 1. **Completed**: What was finished since last standup
 2. **In Progress**: Current focus
 3. **Blockers**: Any impediments to progress
@@ -75,6 +82,7 @@ Each team member shares:
 ### Deployment Agreement Protocol
 
 Before pushing to staging:
+
 1. Developer confirms local testing complete
 2. Code walkthrough completed (if significant changes)
 3. Solution Architect approves merge (for architectural impact)
@@ -84,20 +92,23 @@ Before pushing to staging:
 
 ## Sprint Review
 
-**Frequency**: End of each sprint (bi-weekly)  
-**Duration**: 1 hour  
+**Frequency**: End of each sprint (bi-monthly)  
+**Duration**: 1 hour or as needed
 **Participants**: Full team + stakeholders (as needed)
 
 ### Purpose
+
 Demonstrate completed work and gather feedback on implemented features.
 
 ### Agenda
 
 1. **Sprint Goal Review** (5 min)
+
    - Recap sprint objectives
    - Overview of completed vs. planned work
 
 2. **Feature Demonstrations** (40 min)
+
    - Live demos of completed features in staging environment
    - Each developer demos their contributions
    - Focus on user-facing functionality and technical achievements
@@ -108,10 +119,12 @@ Demonstrate completed work and gather feedback on implemented features.
    - Identify acceptance criteria adjustments
 
 ### Demonstration Environment
+
 - **Primary**: Staging environment
 - **Fallback**: Local development instances (if staging issues)
 
 ### Outputs
+
 - Accepted features (moved to "Done" in GitHub Projects)
 - New issues for feedback-driven adjustments
 - Updated product backlog priorities
@@ -120,11 +133,12 @@ Demonstrate completed work and gather feedback on implemented features.
 
 ## Retrospective
 
-**Frequency**: End of each sprint (bi-weekly)  
+**Frequency**: End of each sprint (bi-monthly)  
 **Duration**: 45 minutes  
 **Participants**: Development team (internal)
 
 ### Purpose
+
 Reflect on process effectiveness and identify improvements for the next sprint.
 
 ### Format
@@ -132,10 +146,12 @@ Reflect on process effectiveness and identify improvements for the next sprint.
 Team discusses three categories:
 
 1. **What Went Well** 🟢
+
    - Celebrate successes and effective practices
    - Identify patterns to reinforce
 
 2. **What Didn't Go Well** 🔴
+
    - Surface friction points and challenges
    - Discuss root causes without blame
 
@@ -191,23 +207,26 @@ Developers are responsible for moving their tasks through the board as work prog
 ## Development Environment Workflow
 
 ### Local Development
+
 1. Pull latest from `dev` branch
 2. Create feature branch: `feature/description` or `bugfix/description`
 3. Implement and test locally
 4. Code walkthrough with team (for significant changes)
 
 ### Staging Deployment
+
 1. Merge feature branch to `dev` after code review
 2. Automated deployment to staging environment
 3. QA testing and validation
 4. Issues reported back to GitHub
 
 ### Testing Protocol
+
 - Developer validates locally before push
 - QA validates in staging environment
 - Critical bugs block further deployments until resolved
 
 ---
 
-*Last Updated: November 2025*  
-*Version: 1.0*
+_Last Updated: November 2025_  
+_Version: 1.0_

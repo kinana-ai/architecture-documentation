@@ -921,6 +921,14 @@
             {
               "text": "Retrospective",
               "path": "processes/development/Development_Workflow.md"
+            },
+            {
+              "text": "GitHub Projects Workflow",
+              "path": "processes/development/Development_Workflow.md"
+            },
+            {
+              "text": "Development Environment Workflow",
+              "path": "processes/development/Development_Workflow.md"
             }
           ]
         },
@@ -937,6 +945,14 @@
             },
             {
               "text": "Approval Requirements",
+              "path": "processes/code-review/Code_Review_Process.md"
+            },
+            {
+              "text": "Review Process Details",
+              "path": "processes/code-review/Code_Review_Process.md"
+            },
+            {
+              "text": "Repository-Specific Considerations",
               "path": "processes/code-review/Code_Review_Process.md"
             }
           ]
@@ -955,6 +971,18 @@
             {
               "text": "Approval Workflow",
               "path": "processes/change-management/Change_Management.md"
+            },
+            {
+              "text": "Change Communication",
+              "path": "processes/change-management/Change_Management.md"
+            },
+            {
+              "text": "Rollback Procedures",
+              "path": "processes/change-management/Change_Management.md"
+            },
+            {
+              "text": "Continuous Improvement",
+              "path": "processes/change-management/Change_Management.md"
             }
           ]
         },
@@ -971,6 +999,18 @@
             },
             {
               "text": "Release Notes",
+              "path": "processes/release-management/Release_Management.md"
+            },
+            {
+              "text": "Release Coordination Across Components",
+              "path": "processes/release-management/Release_Management.md"
+            },
+            {
+              "text": "Archive and Compliance",
+              "path": "processes/release-management/Release_Management.md"
+            },
+            {
+              "text": "Future Enhancements",
               "path": "processes/release-management/Release_Management.md"
             }
           ]

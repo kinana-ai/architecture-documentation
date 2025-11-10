@@ -4,7 +4,7 @@
 
 Code review is a critical quality gate in the Kinana development process. All code merges to the `dev` branch require review and approval before deployment to staging.
 
-**Principle**: Code reviews ensure quality, knowledge sharing, and architectural consistency across the 22-repository codebase.
+**Principle**: Code reviews ensure quality, knowledge sharing, and architectural consistency across the codebase.
 
 ---
 
@@ -27,13 +27,13 @@ Code review is a critical quality gate in the Kinana development process. All co
 
 ### Review Assignments
 
-| Change Type | Primary Reviewer | Approval Authority |
-|-------------|------------------|-------------------|
-| Feature implementation | Senior Developer (peer) | Solution Architect |
-| Bug fixes | Any available developer | Solution Architect |
-| Architectural changes | Solution Architect | Solution Architect |
-| Cross-component changes | Solution Architect | Solution Architect |
-| Documentation updates | Product Manager or PM | Any team member |
+| Change Type             | Primary Reviewer        | Approval Authority |
+| ----------------------- | ----------------------- | ------------------ |
+| Feature implementation  | Senior Developer (peer) | Solution Architect |
+| Bug fixes               | Any available developer | Solution Architect |
+| Architectural changes   | Solution Architect      | Solution Architect |
+| Cross-component changes | Solution Architect      | Solution Architect |
+| Documentation updates   | Product Manager or PM   | Any team member    |
 
 ### Review Timing
 
@@ -50,7 +50,6 @@ Code review is a critical quality gate in the Kinana development process. All co
 - [ ] Code implements the specified requirements
 - [ ] Edge cases and error conditions are handled
 - [ ] No obvious logic errors or bugs
-- [ ] Unit tests cover main functionality (where applicable)
 
 ### Code Quality ✓
 
@@ -110,7 +109,7 @@ Developer → Feature Branch → Pull Request → Code Review → Approval → M
 
 **Solution Architect**: Final approval authority for all merges
 
-**Rationale**: Given the distributed nature of 22 repositories and microservice architecture, centralized architectural oversight ensures system coherence.
+**Rationale**: Given the distributed nature of codebase and microservice architecture, centralized architectural oversight ensures system coherence.
 
 ### Approval Criteria
 
@@ -124,7 +123,7 @@ A pull request may be approved when:
 ### Handling Disagreements
 
 - **Technical Disagreement**: Solution Architect makes final call
-- **Approach Uncertainty**: Schedule a quick team huddle to discuss
+- **Approach Uncertainty**: Schedule a quick team catchup to discuss
 - **Minor Style Issues**: Defer to existing codebase patterns
 
 ---
@@ -136,21 +135,27 @@ A pull request may be approved when:
 1. **Branch naming**: `feature/[issue-number]-description` or `bugfix/[issue-number]-description`
 2. **PR Title**: Clear, concise description of change
 3. **PR Description**:
+
    ```markdown
    ## Related Issue
+
    Closes #[issue-number]
-   
+
    ## Changes Made
+
    - Brief bullet points of key changes
-   
+
    ## Testing Performed
+
    - Local testing steps
    - Expected behavior verified
-   
+
    ## Screenshots (if UI changes)
+
    [Attach relevant screenshots]
-   
+
    ## Notes for Reviewer
+
    - Any specific areas to focus on
    - Known limitations or follow-up work needed
    ```
@@ -171,6 +176,7 @@ For significant changes (new features, architectural modifications, complex refa
 ### Review Feedback
 
 Reviewers provide feedback through:
+
 - **Inline comments**: Specific code suggestions
 - **General comments**: Architectural or approach feedback
 - **Approval status**: Approve, Request Changes, or Comment
@@ -185,6 +191,7 @@ Reviewers provide feedback through:
 ### Merge Protocol
 
 After approval:
+
 1. Solution Architect or developer performs merge
 2. Feature branch deleted after successful merge
 3. Team notified of deployment readiness at next standup
@@ -195,46 +202,28 @@ After approval:
 ## Repository-Specific Considerations
 
 ### Shell Application
+
 - Review impact on all sub-app integrations
 - Verify routing and navigation changes
 
 ### Sub-Apps (Library, Videos, Podcasts, Brokkly)
+
 - Ensure independence from other sub-apps
 - Check shared component compatibility
 
 ### Backend Microservices
+
 - Review API contract changes carefully
 - Verify database migration scripts
 - Check impact on other dependent services
 
 ### Infrastructure Repositories
+
 - Review Kubernetes configurations with extra scrutiny
 - Test deployment changes in staging before approval
 - Document infrastructure changes in release notes
 
 ---
 
-## Code Review Culture
-
-### Expectations
-
-- **Reviewers**: Provide constructive, specific feedback within 1 business day
-- **Authors**: Be receptive to feedback and explain decisions clearly
-- **All**: Focus on code quality, not personal preferences
-- **Team**: Use reviews as learning opportunities
-
-### Communication Tone
-
-- Be respectful and assume positive intent
-- Phrase feedback as questions when appropriate: "Have you considered...?"
-- Explain the "why" behind suggestions
-- Acknowledge good patterns and clever solutions
-
-### Continuous Improvement
-
-Code review processes evolve based on retrospective feedback. Process changes are documented and communicated to the team.
-
----
-
-*Last Updated: November 2025*  
-*Version: 1.0*
+_Last Updated: November 2025_  
+_Version: 1.0_
