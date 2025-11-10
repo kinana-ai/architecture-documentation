@@ -941,7 +941,7 @@
       "items": [
         {
           "text": "Overview",
-          "path": "tools",
+          "path": "tools/Overview.md",
           "isIndex": true
         },
         {
@@ -1015,24 +1015,24 @@
       "items": [
         {
           "text": "Overview",
-          "path": "team",
+          "path": "team/Overview.md",
           "isIndex": true
         },
         {
           "text": "Team Structure",
-          "path": "team/structure.md"
+          "path": "team/Team_Structure.md"
         },
         {
           "text": "Roles & Responsibilities",
-          "path": "team/roles.md"
+          "path": "team/Roles_Responsibilities.md"
         },
         {
           "text": "Contact Directory",
-          "path": "team/contacts.md"
+          "path": "team/Contact_Directory.md"
         },
         {
           "text": "Communication Channels",
-          "path": "team/communication.md"
+          "path": "team/Communication_Channels.md"
         }
       ]
     }
