@@ -632,82 +632,6 @@
               "path": "operations/deployment/blue-green.md"
             }
           ]
-        },
-        {
-          "text": "Monitoring & Observability",
-          "items": [
-            {
-              "text": "Application Monitoring",
-              "path": "operations/monitoring/application.md"
-            },
-            {
-              "text": "Log Aggregation",
-              "path": "operations/monitoring/logging.md"
-            },
-            {
-              "text": "Performance Monitoring",
-              "path": "operations/monitoring/performance.md"
-            },
-            {
-              "text": "Dashboards",
-              "path": "operations/monitoring/dashboards.md"
-            }
-          ]
-        },
-        {
-          "text": "Incident Management",
-          "items": [
-            {
-              "text": "Incident Response",
-              "path": "operations/incident-management/response.md"
-            },
-            {
-              "text": "On-Call Rotation",
-              "path": "operations/incident-management/on-call.md"
-            },
-            {
-              "text": "Incident Classification",
-              "path": "operations/incident-management/classification.md"
-            },
-            {
-              "text": "Post-Incident Review",
-              "path": "operations/incident-management/post-incident.md"
-            }
-          ]
-        },
-        {
-          "text": "Maintenance & Support",
-          "items": [
-            {
-              "text": "Maintenance Procedures",
-              "path": "operations/maintenance/procedures.md"
-            },
-            {
-              "text": "Backup & Restore",
-              "path": "operations/maintenance/backup.md"
-            },
-            {
-              "text": "Security Patching",
-              "path": "operations/maintenance/patching.md"
-            }
-          ]
-        },
-        {
-          "text": "Disaster Recovery",
-          "items": [
-            {
-              "text": "DR Plan",
-              "path": "operations/disaster-recovery/plan.md"
-            },
-            {
-              "text": "Recovery Procedures",
-              "path": "operations/disaster-recovery/procedures.md"
-            },
-            {
-              "text": "DR Testing",
-              "path": "operations/disaster-recovery/testing.md"
-            }
-          ]
         }
       ]
     },
@@ -716,7 +640,7 @@
       "items": [
         {
           "text": "Overview",
-          "path": "compliance",
+          "path": "compliance/Overview.md",
           "isIndex": true
         },
         {
@@ -724,19 +648,19 @@
           "items": [
             {
               "text": "UAE PDPL Compliance",
-              "path": "compliance/regulatory/uae-pdpl.md"
+              "path": "compliance/regulatory/Regulatory_Compliance.md"
             },
             {
               "text": "Egypt Law 151/2020",
-              "path": "compliance/regulatory/egypt-law.md"
+              "path": "compliance/regulatory/Regulatory_Compliance.md"
             },
             {
               "text": "GDPR Compliance",
-              "path": "compliance/regulatory/gdpr.md"
+              "path": "compliance/regulatory/Regulatory_Compliance.md"
             },
             {
               "text": "Educational Standards",
-              "path": "compliance/regulatory/education-standards.md"
+              "path": "compliance/regulatory/Regulatory_Compliance.md"
             }
           ]
         },
@@ -745,19 +669,19 @@
           "items": [
             {
               "text": "Privacy Policy",
-              "path": "compliance/privacy/policy.md"
+              "path": "compliance/privacy/Data_Privacy.md"
             },
             {
               "text": "Data Collection",
-              "path": "compliance/privacy/data-collection.md"
+              "path": "compliance/privacy/Data_Privacy.md"
             },
             {
               "text": "User Consent",
-              "path": "compliance/privacy/consent.md"
+              "path": "compliance/privacy/Data_Privacy.md"
             },
             {
               "text": "Data Subject Rights",
-              "path": "compliance/privacy/subject-rights.md"
+              "path": "compliance/privacy/Data_Privacy.md"
             }
           ]
         },
@@ -766,7 +690,7 @@
           "items": [
             {
               "text": "WCAG 2.1 AA Compliance",
-              "path": "compliance/accessibility/wcag.md"
+              "path": "compliance/accessibility/Accessibility.md"
             },
             {
               "text": "Testing Procedures",
@@ -783,7 +707,7 @@
           "items": [
             {
               "text": "Arabic Language Support",
-              "path": "compliance/localization/arabic.md"
+              "path": "compliance/localization/Localization.md"
             },
             {
               "text": "RTL Implementation",
@@ -800,15 +724,11 @@
           "items": [
             {
               "text": "Security Policies",
-              "path": "compliance/security/policies.md"
+              "path": "compliance/security/Security_Compliance.md"
             },
             {
               "text": "Access Control",
-              "path": "compliance/security/access-control.md"
-            },
-            {
-              "text": "Audit Reports",
-              "path": "compliance/security/audits.md"
+              "path": "compliance/security/Security_Compliance.md"
             }
           ]
         }
