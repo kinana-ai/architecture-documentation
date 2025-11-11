@@ -460,7 +460,7 @@
       "items": [
         {
           "text": "Overview",
-          "path": "development-standards",
+          "path": "development-standards/Overview.md",
           "isIndex": true
         },
         {
@@ -469,28 +469,28 @@
           "items": [
             {
               "text": "Overview",
-              "path": "development-standards/coding",
+              "path": "development-standards/coding/Coding_Standards_Overview.md",
               "isIndex": true
             },
             {
               "text": "JavaScript Style Guide",
-              "path": "development-standards/coding/javascript.md"
+              "path": "development-standards/coding/Coding_Standards_JavaScript.md"
             },
             {
               "text": "Python Style Guide",
-              "path": "development-standards/coding/python.md"
+              "path": "development-standards/coding/Coding_Standards_Python.md"
             },
             {
               "text": "C# Style Guide",
-              "path": "development-standards/coding/csharp.md"
+              "path": "development-standards/coding/Coding_Standards_CSharp.md"
             },
             {
               "text": "Naming Conventions",
-              "path": "development-standards/coding/naming.md"
+              "path": "development-standards/coding/Coding_Standards_Naming.md"
             },
             {
               "text": "Best Practices",
-              "path": "development-standards/coding/best-practices.md"
+              "path": "development-standards/coding/Coding_Standards_BestPractices.md"
             }
           ]
         },
