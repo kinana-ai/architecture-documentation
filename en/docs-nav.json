@@ -303,24 +303,6 @@
         {
           "text": "API Documentation Standards",
           "path": "standards/api-documentation.md"
-        },
-        {
-          "text": "Architecture Decision Records (ADRs)",
-          "items": [
-            {
-              "text": "Overview",
-              "path": "standards/adr",
-              "isIndex": true
-            },
-            {
-              "text": "ADR Template",
-              "path": "standards/adr/template.md"
-            },
-            {
-              "text": "Decision Process",
-              "path": "standards/adr/process.md"
-            }
-          ]
         }
       ]
     },
