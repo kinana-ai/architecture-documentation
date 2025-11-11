@@ -246,7 +246,7 @@
       "items": [
         {
           "text": "Overview",
-          "path": "standards",
+          "path": "standards/Overview.md",
           "isIndex": true
         },
         {
@@ -254,20 +254,20 @@
           "items": [
             {
               "text": "Overview",
-              "path": "standards/code-documentation",
+              "path": "standards/code-documentation/Code_Documentation_Standards.md",
               "isIndex": true
             },
             {
               "text": "Documentation Requirements",
-              "path": "standards/code-documentation/requirements.md"
+              "path": "standards/code-documentation/Code_Documentation_Standards.md"
             },
             {
               "text": "Commenting Standards",
-              "path": "standards/code-documentation/commenting.md"
+              "path": "standards/code-documentation/Code_Documentation_Standards.md"
             },
             {
               "text": "Documentation Tools",
-              "path": "standards/code-documentation/tools.md"
+              "path": "standards/code-documentation/Code_Documentation_Standards.md"
             }
           ]
         },
@@ -276,15 +276,15 @@
           "items": [
             {
               "text": "Copyright Header Template",
-              "path": "standards/file-headers/copyright-template.md"
+              "path": "standards/file-headers/File_Header_Standards.md"
             },
             {
               "text": "License Information",
-              "path": "standards/file-headers/license.md"
+              "path": "standards/file-headers/File_Header_Standards.md"
             },
             {
               "text": "Author Attribution",
-              "path": "standards/file-headers/author.md"
+              "path": "standards/file-headers/File_Header_Standards.md"
             }
           ]
         },
