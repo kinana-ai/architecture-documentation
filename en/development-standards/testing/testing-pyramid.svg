@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <!-- Testing Pyramid -->
+  
+  <!-- Unit Tests (Base) -->
+  <polygon points="50,250 350,250 300,170 100,170" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+  <text x="200" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Unit Tests</text>
+  <text x="200" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">70% - Many</text>
+  
+  <!-- Integration Tests (Middle) -->
+  <polygon points="100,170 300,170 260,100 140,100" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="200" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Integration Tests</text>
+  <text x="200" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">20% - Some</text>
+  
+  <!-- E2E Tests (Top) -->
+  <polygon points="140,100 260,100 230,40 170,40" fill="#FF9800" stroke="#E65100" stroke-width="2"/>
+  <text x="200" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">E2E Tests</text>
+  <text x="200" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">10% - Few</text>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">Testing Pyramid</text>
+</svg>
