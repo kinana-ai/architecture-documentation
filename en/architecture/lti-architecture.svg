@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <style>
+      .component-box { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .db-box { fill: #50C878; stroke: #2E7D4E; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 13px; fill: #fff; text-anchor: middle; }
+      .arrow { stroke: #4c51bf; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .bidirectional { stroke: #4c51bf; stroke-width: 2; fill: none; marker-start: url(#arrowhead); marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 13px; fill: #4c51bf; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4c51bf" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">
+    LTI 1.3 Integration Architecture
+  </text>
+  
+  <!-- LMS (Platform) -->
+  <rect x="50" y="80" width="180" height="100" rx="8" class="component-box"/>
+  <text x="140" y="115" class="text">LMS</text>
+  <text x="140" y="135" class="subtitle">(Platform)</text>
+  <text x="140" y="160" class="subtitle" style="font-size: 11px;">Canvas, Moodle,</text>
+  <text x="140" y="175" class="subtitle" style="font-size: 11px;">Blackboard, etc.</text>
+  
+  <!-- Kinana LTI Service -->
+  <rect x="310" y="80" width="180" height="100" rx="8" class="component-box"/>
+  <text x="400" y="115" class="text">Kinana LTI</text>
+  <text x="400" y="135" class="text">Service</text>
+  <text x="400" y="160" class="subtitle" style="font-size: 11px;">xwinji.lti.kinana.ai</text>
+  <text x="400" y="175" class="subtitle" style="font-size: 11px;">readerapp.lti.kinana.ai</text>
+  
+  <!-- Kinana Application -->
+  <rect x="570" y="80" width="180" height="100" rx="8" class="component-box"/>
+  <text x="660" y="115" class="text">Kinana</text>
+  <text x="660" y="135" class="text">Application</text>
+  <text x="660" y="160" class="subtitle" style="font-size: 11px;">app.kinana.ai</text>
+  
+  <!-- SQL Server Database -->
+  <rect x="310" y="260" width="180" height="100" rx="8" class="db-box"/>
+  <text x="400" y="295" class="text">SQL Server</text>
+  <text x="400" y="315" class="subtitle">(LTI Database)</text>
+  <text x="400" y="340" class="subtitle" style="font-size: 11px;">10.7.0.4:1433</text>
+  
+  <!-- Bidirectional arrow LMS <-> LTI Service -->
+  <path d="M 230 130 L 310 130" class="bidirectional"/>
+  <text x="270" y="120" class="label" text-anchor="middle">OIDC</text>
+  <text x="270" y="145" class="label" text-anchor="middle" style="font-size: 11px;">OAuth 2.0</text>
+  
+  <!-- Bidirectional arrow LTI Service <-> Application -->
+  <path d="M 490 130 L 570 130" class="bidirectional"/>
+  <text x="530" y="120" class="label" text-anchor="middle">JWT</text>
+  <text x="530" y="145" class="label" text-anchor="middle" style="font-size: 11px;">Launch Token</text>
+  
+  <!-- Arrow LTI Service -> Database -->
+  <path d="M 400 180 L 400 260" class="arrow"/>
+  <text x="430" y="225" class="label" text-anchor="start">Store State</text>
+  <text x="430" y="240" class="label" text-anchor="start" style="font-size: 11px;">Launches, Grades</text>
+  
+  <!-- Data flow description -->
+  <g>
+    <rect x="50" y="370" width="700" height="20" fill="none"/>
+    <text x="400" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+      Flow: User launches tool in LMS → OIDC auth → LTI Service validates → JWT token → Kinana Application
+    </text>
+  </g>
+</svg>

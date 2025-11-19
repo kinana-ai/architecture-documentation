@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .core-service { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .app-service { fill: #4facfe; stroke: #0575e6; stroke-width: 2; }
+      .data-service { fill: #43e97b; stroke: #38f9d7; stroke-width: 2; }
+      .pdf-service { fill: #fa709a; stroke: #fee140; stroke-width: 2; }
+      .lti-service { fill: #f093fb; stroke: #4facfe; stroke-width: 2; }
+      .ingress-box { fill: #764ba2; stroke: #667eea; stroke-width: 3; }
+      .text { font-family: Arial, sans-serif; font-size: 13px; fill: #fff; font-weight: bold; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; fill: #fff; text-anchor: middle; }
+      .title-text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; font-weight: bold; }
+      .arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">
+    Kinana Platform - Microservices Architecture
+  </text>
+  
+  <!-- Ingress Layer -->
+  <rect x="300" y="60" width="400" height="50" rx="5" class="ingress-box"/>
+  <text x="500" y="82" class="text" style="font-size: 16px;">NGINX Ingress Controller</text>
+  <text x="500" y="100" class="small-text" style="font-size: 11px;">TLS Termination | 18+ Certificates</text>
+  
+  <!-- Arrow from ingress -->
+  <path d="M 500 110 L 500 130" class="arrow"/>
+  
+  <!-- Core Services Group -->
+  <text x="100" y="160" class="title-text">Core Services</text>
+  <rect x="50" y="170" width="110" height="70" rx="5" class="core-service"/>
+  <text x="105" y="195" class="text">Identity</text>
+  <text x="105" y="210" class="text">Service</text>
+  <text x="105" y="230" class="small-text">id.kinana.ai</text>
+  
+  <rect x="180" y="170" width="110" height="70" rx="5" class="core-service"/>
+  <text x="235" y="195" class="text">API</text>
+  <text x="235" y="210" class="text">Gateway</text>
+  <text x="235" y="230" class="small-text">api.kinana.ai</text>
+  
+  <rect x="310" y="170" width="110" height="70" rx="5" class="core-service"/>
+  <text x="365" y="195" class="text">Admin</text>
+  <text x="365" y="210" class="text">Interface</text>
+  <text x="365" y="230" class="small-text">admin.kinana.ai</text>
+  
+  <!-- Application Services Group -->
+  <text x="580" y="160" class="title-text">Application Services</text>
+  <rect x="450" y="170" width="110" height="70" rx="5" class="app-service"/>
+  <text x="505" y="195" class="text">Main</text>
+  <text x="505" y="210" class="text">Application</text>
+  <text x="505" y="230" class="small-text">app.kinana.ai</text>
+  
+  <rect x="580" y="170" width="110" height="70" rx="5" class="app-service"/>
+  <text x="635" y="195" class="text">Document</text>
+  <text x="635" y="210" class="text">Service</text>
+  <text x="635" y="230" class="small-text">Internal</text>
+  
+  <rect x="710" y="170" width="110" height="70" rx="5" class="app-service"/>
+  <text x="765" y="195" class="text">FSAPI</text>
+  <text x="765" y="210" class="text">(Files)</text>
+  <text x="765" y="230" class="small-text">Internal</text>
+  
+  <rect x="840" y="170" width="110" height="70" rx="5" class="app-service"/>
+  <text x="895" y="195" class="text">Website</text>
+  <text x="895" y="210" class="text">(Public)</text>
+  <text x="895" y="230" class="small-text">www.kinana.ai</text>
+  
+  <!-- PDF Processing Services Group -->
+  <text x="140" y="290" class="title-text">PDF Processing</text>
+  <rect x="50" y="300" width="110" height="70" rx="5" class="pdf-service"/>
+  <text x="105" y="320" class="text">PDF</text>
+  <text x="105" y="335" class="text">Optimization</text>
+  <text x="105" y="360" class="small-text">pdfopt.kinana.ai</text>
+  
+  <rect x="180" y="300" width="110" height="70" rx="5" class="pdf-service"/>
+  <text x="235" y="320" class="text">PDF</text>
+  <text x="235" y="335" class="text">Translation</text>
+  <text x="235" y="360" class="small-text">pdftra.kinana.ai</text>
+  
+  <rect x="310" y="300" width="110" height="70" rx="5" class="pdf-service"/>
+  <text x="365" y="320" class="text">PDF</text>
+  <text x="365" y="335" class="text">Images</text>
+  <text x="365" y="360" class="small-text">pdfimg.kinana.ai</text>
+  
+  <rect x="440" y="300" width="110" height="70" rx="5" class="pdf-service"/>
+  <text x="495" y="320" class="text">Language</text>
+  <text x="495" y="335" class="text">Translation</text>
+  <text x="495" y="360" class="small-text">kintra.kinana.ai</text>
+  
+  <!-- LTI Services Group -->
+  <text x="680" y="290" class="title-text">LTI Integration</text>
+  <rect x="600" y="300" width="110" height="70" rx="5" class="lti-service"/>
+  <text x="655" y="320" class="text">LTI Main</text>
+  <text x="655" y="335" class="text">(xwinji)</text>
+  <text x="655" y="360" class="small-text">xwinji.lti.kinana.ai</text>
+  
+  <rect x="730" y="300" width="110" height="70" rx="5" class="lti-service"/>
+  <text x="785" y="320" class="text">LTI PAAET</text>
+  <text x="785" y="335" class="text">(readerapp)</text>
+  <text x="785" y="360" class="small-text">readerapp.lti.kinana.ai</text>
+  
+  <!-- Data Layer Group -->
+  <text x="230" y="430" class="title-text">Data Layer</text>
+  <rect x="50" y="440" width="140" height="80" rx="5" class="data-service"/>
+  <text x="120" y="465" class="text">Redis Cache</text>
+  <text x="120" y="485" class="small-text">Session Storage</text>
+  <text x="120" y="500" class="small-text">Application State</text>
+  <text x="120" y="515" class="small-text">Port: 6379</text>
+  
+  <rect x="210" y="440" width="140" height="80" rx="5" class="data-service"/>
+  <text x="280" y="465" class="text">MySQL (FSDB)</text>
+  <text x="280" y="485" class="small-text">File System</text>
+  <text x="280" y="500" class="small-text">Metadata</text>
+  <text x="280" y="515" class="small-text">Port: 3306</text>
+  
+  <rect x="370" y="440" width="140" height="80" rx="5" class="data-service"/>
+  <text x="440" y="465" class="text">SQL Server</text>
+  <text x="440" y="485" class="small-text">LTI Integration</text>
+  <text x="440" y="500" class="small-text">External Host</text>
+  <text x="440" y="515" class="small-text">10.7.0.4:1433</text>
+  
+  <!-- Storage Layer Group -->
+  <text x="730" y="430" class="title-text">Storage Layer</text>
+  <rect x="560" y="440" width="380" height="80" rx="5" style="fill: #FFA07A; stroke: #FF6347; stroke-width: 2;"/>
+  <text x="750" y="465" class="text" style="font-size: 15px;">Azure Blob Storage</text>
+  <text x="750" y="485" class="small-text" style="font-size: 12px;">10 Persistent Volumes | 100 Gi Total</text>
+  <text x="750" y="500" class="small-text" style="font-size: 11px;">Files | Documents | Media</text>
+  <text x="750" y="515" class="small-text" style="font-size: 11px;">Premium Performance | Zone-Redundant</text>
+  
+  <!-- Service Count -->
+  <rect x="50" y="570" width="900" height="100" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="5,5" rx="5"/>
+  <text x="500" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">
+    Platform Statistics
+  </text>
+  <text x="150" y="620" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • 3 Core Services
+  </text>
+  <text x="150" y="640" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • 12+ Application Services
+  </text>
+  <text x="150" y="660" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • 4 PDF Processing Services
+  </text>
+  <text x="500" y="620" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • 2 LTI Integration Services
+  </text>
+  <text x="500" y="640" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • 3 Data Stores
+  </text>
+  <text x="500" y="660" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • 10 Persistent Volumes (100 Gi)
+  </text>
+  <text x="800" y="620" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • 18+ SSL Certificates
+  </text>
+  <text x="800" y="640" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • Multi-tenant Architecture
+  </text>
+  <text x="800" y="660" font-family="Arial, sans-serif" font-size="13" fill="#333">
+    • Deployed on Azure AKS
+  </text>
+</svg>

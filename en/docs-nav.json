@@ -27,32 +27,32 @@
       "items": [
         {
           "text": "Overview",
-          "path": "architecture",
+          "path": "architecture/Platform-Architecture-Overview.md",
           "isIndex": true
         },
         {
           "text": "System Architecture",
-          "path": "architecture/system-architecture.md"
+          "path": "architecture/System-Architecture.md"
         },
         {
           "text": "Data Architecture",
           "items": [
             {
               "text": "Overview",
-              "path": "architecture/data-architecture",
+              "path": "architecture/Data-Architecture-Overview.md",
               "isIndex": true
             },
             {
               "text": "Database Schema",
-              "path": "architecture/data-architecture/database-schema.md"
+              "path": "architecture/data-architecture/Database-Schema.md"
             },
             {
               "text": "Data Models",
-              "path": "architecture/data-architecture/data-models.md"
+              "path": "architecture/data-architecture/Database-Schema.md"
             },
             {
               "text": "Data Flow Diagrams",
-              "path": "architecture/data-architecture/data-flow.md"
+              "path": "architecture/data-architecture/Database-Schema.md"
             }
           ]
         },
@@ -61,30 +61,30 @@
           "items": [
             {
               "text": "Overview",
-              "path": "architecture/security",
+              "path": "architecture/Security-Architecture-Overview.md",
               "isIndex": true
             },
             {
               "text": "Authentication & Authorization",
-              "path": "architecture/security/auth.md"
+              "path": "architecture/security/Security-Architecture.md"
             },
             {
               "text": "Encryption Standards",
-              "path": "architecture/security/encryption.md"
+              "path": "architecture/security/Security-Architecture.md"
             },
             {
               "text": "Threat Model",
-              "path": "architecture/security/threat-model.md"
+              "path": "architecture/security/Security-Architecture.md"
             }
           ]
         },
         {
           "text": "Integration Architecture",
-          "path": "architecture/integration-architecture.md"
+          "path": "architecture/Integration-Architecture.md"
         },
         {
           "text": "Infrastructure",
-          "path": "architecture/infrastructure.md"
+          "path": "architecture/Infrastructure.md"
         }
       ]
     },

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 650" width="500" height="650">
+  <defs>
+    <style>
+      .step-box { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .desc-text { font-family: Arial, sans-serif; font-size: 13px; fill: #fff; text-anchor: middle; }
+      .arrow { stroke: #4c51bf; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4c51bf; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4c51bf" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="250" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">
+    Zero Trust Security Model
+  </text>
+  <text x="250" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">
+    Never Trust, Always Verify
+  </text>
+  
+  <!-- Request -->
+  <rect x="150" y="80" width="200" height="60" rx="8" class="step-box"/>
+  <text x="250" y="105" class="text">Request</text>
+  <text x="250" y="125" class="desc-text">Incoming access request</text>
+  
+  <!-- Arrow to Authentication -->
+  <path d="M 250 140 L 250 170" class="arrow"/>
+  
+  <!-- Authentication -->
+  <rect x="100" y="170" width="300" height="80" rx="8" class="step-box"/>
+  <text x="250" y="200" class="text">Authentication</text>
+  <text x="250" y="220" class="desc-text">Who are you?</text>
+  <text x="250" y="238" class="desc-text" style="font-size: 11px;">Verify identity through credentials</text>
+  <text x="420" y="210" class="label" text-anchor="start">✓ Verify identity</text>
+  
+  <!-- Arrow to Authorization -->
+  <path d="M 250 250 L 250 280" class="arrow"/>
+  
+  <!-- Authorization -->
+  <rect x="100" y="280" width="300" height="80" rx="8" class="step-box"/>
+  <text x="250" y="310" class="text">Authorization</text>
+  <text x="250" y="330" class="desc-text">What can you do?</text>
+  <text x="250" y="348" class="desc-text" style="font-size: 11px;">Check permissions and access rights</text>
+  <text x="420" y="320" class="label" text-anchor="start">✓ Verify permissions</text>
+  
+  <!-- Arrow to Context -->
+  <path d="M 250 360 L 250 390" class="arrow"/>
+  
+  <!-- Context Evaluation -->
+  <rect x="100" y="390" width="300" height="80" rx="8" class="step-box"/>
+  <text x="250" y="420" class="text">Context Evaluation</text>
+  <text x="250" y="440" class="desc-text">Is this normal?</text>
+  <text x="250" y="458" class="desc-text" style="font-size: 11px;">Check device, location, time, behavior</text>
+  <text x="420" y="430" class="label" text-anchor="start">✓ Check context</text>
+  
+  <!-- Arrow to Continuous -->
+  <path d="M 250 470 L 250 500" class="arrow"/>
+  
+  <!-- Continuous Verification -->
+  <rect x="100" y="500" width="300" height="80" rx="8" class="step-box"/>
+  <text x="250" y="530" class="text">Continuous Verification</text>
+  <text x="250" y="550" class="desc-text">Monitor throughout session</text>
+  <text x="250" y="568" class="desc-text" style="font-size: 11px;">Re-evaluate trust continuously</text>
+  <text x="420" y="540" class="label" text-anchor="start">✓ Monitor session</text>
+  
+  <!-- Feedback loop -->
+  <path d="M 100 540 L 70 540 L 70 210 L 100 210" class="arrow" stroke-dasharray="5,5"/>
+  <text x="50" y="380" class="label" text-anchor="middle" transform="rotate(-90 50 380)">
+    Re-verify
+  </text>
+  
+  <!-- Key Principles box -->
+  <rect x="50" y="600" width="400" height="40" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="3,3" rx="5"/>
+  <text x="250" y="625" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    Key Principle: Trust is never assumed, always verified at every step
+  </text>
+</svg>

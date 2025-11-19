@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+  <defs>
+    <style>
+      .tier-box { stroke: #333; stroke-width: 2; }
+      .tier1 { fill: #FF6B6B; }
+      .tier2 { fill: #4ECDC4; }
+      .tier3 { fill: #45B7D1; }
+      .tier-title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .tier-subtitle { font-family: Arial, sans-serif; font-size: 14px; fill: #fff; text-anchor: middle; font-style: italic; }
+      .tier-detail { font-family: Arial, sans-serif; font-size: 12px; fill: #fff; text-anchor: start; }
+      .arrow { stroke: #666; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 11px; fill: #333; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">
+    Three-Tier Data Storage Model
+  </text>
+  
+  <!-- Tier 1: Cache Layer -->
+  <rect x="75" y="60" width="650" height="130" rx="8" class="tier-box tier1"/>
+  <text x="400" y="90" class="tier-title">Tier 1: Cache Layer</text>
+  <text x="400" y="110" class="tier-subtitle">(Redis 6.0.8)</text>
+  <text x="95" y="135" class="tier-detail">• Purpose: Session data, application state, query cache</text>
+  <text x="95" y="155" class="tier-detail">• Performance: Sub-millisecond latency</text>
+  <text x="95" y="175" class="tier-detail">• Persistence: In-memory (no disk persistence)</text>
+  <text x="440" y="135" class="tier-detail">• Access Pattern: Read-heavy</text>
+  <text x="440" y="155" class="tier-detail">• Target Cache Hit Rate: 99%</text>
+  <text x="440" y="175" class="tier-detail">• Eviction: LRU (Least Recently Used)</text>
+  
+  <!-- Hot label -->
+  <text x="40" y="125" class="label" fill="#C92A2A" text-anchor="middle">HOT</text>
+  <text x="750" y="125" class="label" fill="#C92A2A" text-anchor="middle">~1ms</text>
+  
+  <!-- Arrow 1 to 2 -->
+  <path d="M 400 190 L 400 220" class="arrow"/>
+  <text x="430" y="210" class="label" fill="#666">Data Miss</text>
+  
+  <!-- Tier 2: Database Layer -->
+  <rect x="75" y="220" width="650" height="130" rx="8" class="tier-box tier2"/>
+  <text x="400" y="250" class="tier-title">Tier 2: Database Layer</text>
+  <text x="400" y="270" class="tier-subtitle">(MySQL + SQL Server)</text>
+  <text x="95" y="295" class="tier-detail">• Purpose: Metadata, relationships, structured data</text>
+  <text x="95" y="315" class="tier-detail">• Performance: Millisecond to sub-second latency</text>
+  <text x="95" y="335" class="tier-detail">• Persistence: Durable, ACID-compliant</text>
+  <text x="440" y="295" class="tier-detail">• Access Pattern: Mixed read/write</text>
+  <text x="440" y="315" class="tier-detail">• MySQL: File system metadata</text>
+  <text x="440" y="335" class="tier-detail">• SQL Server: LTI integration data</text>
+  
+  <!-- Warm label -->
+  <text x="40" y="285" class="label" fill="#2B8A3E" text-anchor="middle">WARM</text>
+  <text x="750" y="285" class="label" fill="#2B8A3E" text-anchor="middle">~10ms</text>
+  
+  <!-- Arrow 2 to 3 -->
+  <path d="M 400 350 L 400 380" class="arrow"/>
+  <text x="430" y="370" class="label" fill="#666">File Reference</text>
+  
+  <!-- Tier 3: Blob Storage -->
+  <rect x="75" y="380" width="650" height="130" rx="8" class="tier-box tier3"/>
+  <text x="400" y="410" class="tier-title">Tier 3: Blob Storage Layer</text>
+  <text x="400" y="430" class="tier-subtitle">(Azure Blob Storage)</text>
+  <text x="95" y="455" class="tier-detail">• Purpose: Files, documents, media, large objects</text>
+  <text x="95" y="475" class="tier-detail">• Performance: Second-level latency (cold starts)</text>
+  <text x="95" y="495" class="tier-detail">• Persistence: Highly durable (11 nines)</text>
+  <text x="440" y="455" class="tier-detail">• Access Pattern: Write-once, read-many</text>
+  <text x="440" y="475" class="tier-detail">• Storage: 10 Persistent Volumes, 100 Gi</text>
+  <text x="440" y="495" class="tier-detail">• Features: Lifecycle policies, versioning</text>
+  
+  <!-- Cold label -->
+  <text x="40" y="445" class="label" fill="#1971C2" text-anchor="middle">COLD</text>
+  <text x="750" y="445" class="label" fill="#1971C2" text-anchor="middle">~100ms</text>
+</svg>

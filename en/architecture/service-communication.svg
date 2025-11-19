@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <style>
+      .service-box { fill: #4A90E2; stroke: #2E5C8A; stroke-width: 2; }
+      .db-box { fill: #50C878; stroke: #2E7D4E; stroke-width: 2; }
+      .cache-box { fill: #FF6B6B; stroke: #C92A2A; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 14px; fill: #fff; font-weight: bold; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 11px; fill: #fff; text-anchor: middle; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 5,5; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">
+    Service Communication Patterns
+  </text>
+  
+  <!-- Redis Cache (Top) -->
+  <rect x="340" y="60" width="120" height="60" rx="5" class="cache-box"/>
+  <text x="400" y="85" class="text">Redis Cache</text>
+  <text x="400" y="105" class="small-text">Port: 6379</text>
+  
+  <!-- Identity Service -->
+  <rect x="80" y="180" width="120" height="80" rx="5" class="service-box"/>
+  <text x="140" y="210" class="text">Identity</text>
+  <text x="140" y="230" class="text">Service</text>
+  <text x="140" y="250" class="small-text">Port: 80</text>
+  
+  <!-- API Gateway -->
+  <rect x="340" y="180" width="120" height="80" rx="5" class="service-box"/>
+  <text x="400" y="210" class="text">API</text>
+  <text x="400" y="230" class="text">Gateway</text>
+  <text x="400" y="250" class="small-text">Port: 80</text>
+  
+  <!-- Admin Service -->
+  <rect x="600" y="180" width="120" height="80" rx="5" class="service-box"/>
+  <text x="660" y="210" class="text">Admin</text>
+  <text x="660" y="230" class="text">Interface</text>
+  <text x="660" y="250" class="small-text">Port: 80</text>
+  
+  <!-- FSDB (MySQL) -->
+  <rect x="150" y="360" width="120" height="80" rx="5" class="db-box"/>
+  <text x="210" y="390" class="text">FSDB</text>
+  <text x="210" y="410" class="text">(MySQL)</text>
+  <text x="210" y="430" class="small-text">Port: 3306</text>
+  
+  <!-- SQL Server -->
+  <rect x="530" y="360" width="120" height="80" rx="5" class="db-box"/>
+  <text x="590" y="385" class="text">SQL Server</text>
+  <text x="590" y="405" class="text">(External)</text>
+  <text x="590" y="425" class="small-text">10.7.0.4:1433</text>
+  
+  <!-- Arrows from services to cache -->
+  <path d="M 140 180 L 140 140 L 360 140 L 360 120" class="arrow"/>
+  <path d="M 400 180 L 400 120" class="arrow"/>
+  <path d="M 660 180 L 660 140 L 440 140 L 440 120" class="arrow"/>
+  
+  <!-- Label for cache connections -->
+  <text x="400" y="155" class="label" text-anchor="middle">Shared Cache Access</text>
+  
+  <!-- Arrows from API to databases -->
+  <path d="M 380 260 L 250 360" class="arrow"/>
+  <path d="M 420 260 L 550 360" class="arrow dashed"/>
+  
+  <!-- Labels for database connections -->
+  <text x="300" y="320" class="label">Internal</text>
+  <text x="500" y="320" class="label">External (LTI)</text>
+  
+  <!-- Internal DNS notation -->
+  <rect x="250" y="450" width="300" height="30" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="3,3" rx="3"/>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="11px" fill="#666">
+    Internal DNS: {service}.kinana-dev.svc.cluster.local
+  </text>
+</svg>
