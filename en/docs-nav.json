@@ -39,7 +39,7 @@
           "items": [
             {
               "text": "Overview",
-              "path": "architecture/Data-Architecture-Overview.md",
+              "path": "architecture/data-architecture/Data-Architecture-Overview.md",
               "isIndex": true
             },
             {
@@ -61,7 +61,7 @@
           "items": [
             {
               "text": "Overview",
-              "path": "architecture/Security-Architecture-Overview.md",
+              "path": "architecture/security/Security-Architecture-Overview.md",
               "isIndex": true
             },
             {
