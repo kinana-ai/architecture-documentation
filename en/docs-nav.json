@@ -290,19 +290,19 @@
         },
         {
           "text": "Function & Method Documentation",
-          "path": "standards/function-documentation.md"
+          "path": "standards/Code_Documentation_Standards.md"
         },
         {
           "text": "Class & Module Documentation",
-          "path": "standards/class-documentation.md"
+          "path": "standards/Code_Documentation_Standards.md"
         },
         {
           "text": "README Standards",
-          "path": "standards/readme-standards.md"
+          "path": "standards/Code_Documentation_Standards.md"
         },
         {
           "text": "API Documentation Standards",
-          "path": "standards/api-documentation.md"
+          "path": "standards/Code_Documentation_Standards.md"
         }
       ]
     },
@@ -673,14 +673,6 @@
             {
               "text": "WCAG 2.1 AA Compliance",
               "path": "compliance/accessibility/Accessibility.md"
-            },
-            {
-              "text": "Testing Procedures",
-              "path": "compliance/accessibility/testing.md"
-            },
-            {
-              "text": "Screen Reader Support",
-              "path": "compliance/accessibility/screen-readers.md"
             }
           ]
         },
@@ -693,11 +685,11 @@
             },
             {
               "text": "RTL Implementation",
-              "path": "compliance/localization/rtl.md"
+              "path": "compliance/localization/Localization.md"
             },
             {
               "text": "Translation Management",
-              "path": "compliance/localization/translation.md"
+              "path": "compliance/localization/Localization.md"
             }
           ]
         },
