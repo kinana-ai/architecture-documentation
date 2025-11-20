@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 1500" width="850" height="1500">
+  <defs>
+    <style>
+      .lms-box { fill: #FF9800; stroke: #E65100; stroke-width: 2; }
+      .lti-box { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .app-box { fill: #4ECDC4; stroke: #26A69A; stroke-width: 2; }
+      .db-box { fill: #50C878; stroke: #2E7D4E; stroke-width: 2; }
+      .success-box { fill: #43A047; stroke: #2E7D32; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 12px; fill: #fff; text-anchor: middle; }
+      .arrow { stroke: #4c51bf; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 11px; fill: #4c51bf; font-weight: bold; }
+      .detail { font-family: Arial, sans-serif; font-size: 10px; fill: #4c51bf; }
+      .section-title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4c51bf" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="425" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">
+    LTI 1.3 Launch Security Flow
+  </text>
+  
+  <!-- Section 1: Authentication -->
+  <text x="425" y="60" class="section-title">Part 1: OIDC Authentication</text>
+  
+  <!-- LMS (start) -->
+  <rect x="300" y="80" width="250" height="60" rx="8" class="lms-box"/>
+  <text x="425" y="105" class="text">LMS (Platform)</text>
+  <text x="425" y="125" class="subtitle">Canvas / Moodle / Blackboard</text>
+  
+  <path d="M 425 140 L 425 170" class="arrow"/>
+  <text x="455" y="158" class="label">1. User clicks LTI link</text>
+  
+  <!-- Kinana LTI Service (initial) -->
+  <rect x="275" y="170" width="300" height="70" rx="8" class="lti-box"/>
+  <text x="425" y="198" class="text">Kinana LTI Service</text>
+  <text x="425" y="218" class="subtitle">Initiate OIDC Login</text>
+  <text x="285" y="233" class="detail">Generate state & nonce for security</text>
+  
+  <path d="M 425 240 L 425 270" class="arrow"/>
+  <text x="455" y="258" class="label">2. Redirect to LMS auth</text>
+  
+  <!-- LMS (authenticate) -->
+  <rect x="300" y="270" width="250" height="70" rx="8" class="lms-box"/>
+  <text x="425" y="298" class="text">LMS (Platform)</text>
+  <text x="425" y="318" class="subtitle">Validate User</text>
+  <text x="310" y="333" class="detail">Generate ID token (JWT)</text>
+  
+  <path d="M 425 340 L 425 370" class="arrow"/>
+  <text x="455" y="358" class="label">3. Return ID token</text>
+  
+  <!-- Kinana LTI Service (validate) -->
+  <rect x="250" y="370" width="350" height="90" rx="8" class="lti-box"/>
+  <text x="425" y="398" class="text">Kinana LTI Service</text>
+  <text x="425" y="418" class="subtitle">Validate ID Token</text>
+  <text x="260" y="438" class="detail">• Fetch JWKS • Verify signature • Check nonce</text>
+  <text x="260" y="453" class="detail">• Check state (CSRF) • Validate claims</text>
+  
+  <path d="M 425 460 L 425 490" class="arrow"/>
+  <text x="455" y="478" class="label">4. Token valid</text>
+  
+  <!-- Extract Context -->
+  <rect x="250" y="490" width="350" height="80" rx="8" class="lti-box"/>
+  <text x="425" y="518" class="text">Extract User Context</text>
+  <text x="260" y="538" class="detail">• user_id • roles • course_context</text>
+  <text x="260" y="553" class="detail">• resource_link • custom_parameters</text>
+  
+  <path d="M 425 570 L 425 600" class="arrow"/>
+  <text x="455" y="588" class="label">5. Store launch data</text>
+  
+  <!-- SQL Server -->
+  <rect x="300" y="600" width="250" height="70" rx="8" class="db-box"/>
+  <text x="425" y="628" class="text">SQL Server</text>
+  <text x="425" y="648" class="subtitle">Create Session (LTI DB)</text>
+  <text x="310" y="663" class="detail">Store launch_id, context, user data</text>
+  
+  <path d="M 425 670 L 425 700" class="arrow"/>
+  <text x="455" y="688" class="label">6. Generate app token</text>
+  
+  <!-- Generate Token -->
+  <rect x="275" y="700" width="300" height="70" rx="8" class="lti-box"/>
+  <text x="425" y="728" class="text">Generate App Token (JWT)</text>
+  <text x="285" y="748" class="detail">Contains: launch_id, user_id, context,</text>
+  <text x="285" y="763" class="detail">permissions, course_id</text>
+  
+  <path d="M 425 770 L 425 800" class="arrow"/>
+  <text x="455" y="788" class="label">7. Redirect with token</text>
+  
+  <!-- Kinana Application -->
+  <rect x="275" y="800" width="300" height="80" rx="8" class="app-box"/>
+  <text x="425" y="833" class="text">Kinana Application</text>
+  <text x="425" y="853" class="subtitle">✓ Authenticated!</text>
+  <text x="285" y="873" class="detail">User can now access course content</text>
+  
+  <!-- Divider -->
+  <line x1="50" y1="920" x2="800" y2="920" stroke="#999" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Section 2: Grade Passback -->
+  <text x="425" y="950" class="section-title">Part 2: Grade Passback (AGS)</text>
+  
+  <!-- Application (submit grade) -->
+  <rect x="275" y="970" width="300" height="70" rx="8" class="app-box"/>
+  <text x="425" y="998" class="text">Kinana Application</text>
+  <text x="425" y="1018" class="subtitle">Submit Grade</text>
+  <text x="285" y="1033" class="detail">POST /ags/scores</text>
+  
+  <path d="M 425 1040 L 425 1070" class="arrow"/>
+  <text x="455" y="1058" class="label">8. Grade submission</text>
+  
+  <!-- LTI Service (get token) -->
+  <rect x="275" y="1070" width="300" height="70" rx="8" class="lti-box"/>
+  <text x="425" y="1098" class="text">LTI Service</text>
+  <text x="425" y="1118" class="subtitle">Request OAuth Token</text>
+  <text x="285" y="1133" class="detail">Client credentials flow</text>
+  
+  <path d="M 425 1140 L 425 1170" class="arrow"/>
+  <text x="455" y="1158" class="label">9. Request token</text>
+  
+  <!-- LMS (issue token) -->
+  <rect x="300" y="1170" width="250" height="60" rx="8" class="lms-box"/>
+  <text x="425" y="1195" class="text">LMS (Platform)</text>
+  <text x="425" y="1215" class="subtitle">Issue OAuth Access Token</text>
+  
+  <path d="M 425 1230 L 425 1260" class="arrow"/>
+  <text x="455" y="1248" class="label">10. Return token</text>
+  
+  <!-- LTI Service (submit with token) -->
+  <rect x="275" y="1260" width="300" height="70" rx="8" class="lti-box"/>
+  <text x="425" y="1288" class="text">LTI Service</text>
+  <text x="425" y="1308" class="subtitle">Submit Grade with Token</text>
+  <text x="285" y="1323" class="detail">POST to AGS endpoint</text>
+  
+  <path d="M 425 1330 L 425 1360" class="arrow"/>
+  <text x="455" y="1348" class="label">11. Grade + token</text>
+  
+  <!-- LMS (save grade) -->
+  <rect x="300" y="1360" width="250" height="60" rx="8" class="lms-box"/>
+  <text x="425" y="1385" class="text">LMS (Platform)</text>
+  <text x="425" y="1405" class="subtitle">Validate & Save Grade</text>
+  
+  <path d="M 425 1420 L 425 1450" class="arrow"/>
+  <text x="455" y="1438" class="label">12. Confirmed</text>
+  
+  <!-- Success -->
+  <rect x="300" y="1450" width="250" height="40" rx="8" class="success-box"/>
+  <text x="425" y="1475" class="text">✓ Grade Recorded!</text>
+  
+  <!-- Side notes -->
+  <rect x="620" y="100" width="200" height="150" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="3,3" rx="5"/>
+  <text x="720" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12px" fill="#666" font-weight="bold">
+    Security Features
+  </text>
+  <text x="630" y="140" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    ✓ OIDC Authentication
+  </text>
+  <text x="630" y="160" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    ✓ Nonce (replay protection)
+  </text>
+  <text x="630" y="180" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    ✓ State (CSRF protection)
+  </text>
+  <text x="630" y="200" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    ✓ JWT signature validation
+  </text>
+  <text x="630" y="220" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    ✓ JWKS key verification
+  </text>
+  <text x="630" y="240" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    ✓ OAuth 2.0 tokens
+  </text>
+</svg>

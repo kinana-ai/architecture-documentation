@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450" width="700" height="450">
+  <defs>
+    <style>
+      .app-box { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .vault-box { fill: #0078D4; stroke: #005A9E; stroke-width: 3; }
+      .section-box { fill: #E8F4FD; stroke: #0078D4; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .vault-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .section-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #0078D4; text-anchor: middle; }
+      .item-text { font-family: Arial, sans-serif; font-size: 11px; fill: #0078D4; text-anchor: start; }
+      .arrow { stroke: #4c51bf; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 13px; fill: #4c51bf; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4c51bf" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">
+    Azure Key Vault Architecture
+  </text>
+  
+  <!-- Applications / Services -->
+  <rect x="100" y="60" width="500" height="60" rx="8" class="app-box"/>
+  <text x="350" y="95" class="text" style="font-size: 18px;">Applications / Services</text>
+  
+  <!-- Arrow -->
+  <path d="M 350 120 L 350 170" class="arrow"/>
+  <text x="380" y="145" class="label">Managed Identity</text>
+  <text x="380" y="160" class="label" style="font-size: 11px;">(No credentials)</text>
+  
+  <!-- Azure Key Vault Container -->
+  <rect x="50" y="170" width="600" height="250" rx="10" class="vault-box"/>
+  <text x="350" y="200" class="vault-text">Azure Key Vault (ibt-prd-kv-01)</text>
+  
+  <!-- Secrets Section -->
+  <rect x="80" y="230" width="160" height="160" rx="8" class="section-box"/>
+  <text x="160" y="255" class="section-text">Secrets</text>
+  <line x1="90" y1="265" x2="230" y2="265" stroke="#0078D4" stroke-width="1"/>
+  <text x="95" y="285" class="item-text">• DB Passwords</text>
+  <text x="95" y="305" class="item-text">• API Keys</text>
+  <text x="95" y="325" class="item-text">• Connection Strings</text>
+  <text x="95" y="345" class="item-text">• OAuth Secrets</text>
+  <text x="95" y="365" class="item-text">• Service Tokens</text>
+  
+  <!-- Keys Section -->
+  <rect x="270" y="230" width="160" height="160" rx="8" class="section-box"/>
+  <text x="350" y="255" class="section-text">Keys</text>
+  <line x1="280" y1="265" x2="420" y2="265" stroke="#0078D4" stroke-width="1"/>
+  <text x="285" y="285" class="item-text">• Encryption Keys</text>
+  <text x="285" y="305" class="item-text">• Signing Keys</text>
+  <text x="285" y="325" class="item-text">• JWT Keys</text>
+  <text x="285" y="345" class="item-text">• RSA Keys</text>
+  <text x="285" y="365" class="item-text">• AES-256 Keys</text>
+  
+  <!-- Certificates Section -->
+  <rect x="460" y="230" width="160" height="160" rx="8" class="section-box"/>
+  <text x="540" y="255" class="section-text">Certificates</text>
+  <line x1="470" y1="265" x2="610" y2="265" stroke="#0078D4" stroke-width="1"/>
+  <text x="475" y="285" class="item-text">• TLS Certificates</text>
+  <text x="475" y="305" class="item-text">• SSL Certificates</text>
+  <text x="475" y="325" class="item-text">• Code Signing</text>
+  <text x="475" y="345" class="item-text">• Legacy Certs</text>
+  <text x="475" y="365" class="item-text">• CA Certificates</text>
+</svg>

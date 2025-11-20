@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1350" width="800" height="1350">
+  <defs>
+    <style>
+      .box { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .decision-box { fill: #FFA726; stroke: #FB8C00; stroke-width: 2; }
+      .cache-box { fill: #FF6B6B; stroke: #C92A2A; stroke-width: 2; }
+      .db-box { fill: #50C878; stroke: #2E7D4E; stroke-width: 2; }
+      .success-box { fill: #43A047; stroke: #2E7D32; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 12px; fill: #fff; text-anchor: middle; }
+      .arrow { stroke: #4c51bf; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 11px; fill: #4c51bf; font-weight: bold; }
+      .detail { font-family: Arial, sans-serif; font-size: 10px; fill: #4c51bf; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4c51bf" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">
+    API Request Authorization Flow
+  </text>
+  
+  <!-- Client App -->
+  <rect x="275" y="60" width="250" height="70" rx="8" class="box"/>
+  <text x="400" y="88" class="text">Client App</text>
+  <text x="400" y="108" class="subtitle" style="font-size: 11px;">GET /api/files/12345</text>
+  <text x="400" y="123" class="subtitle" style="font-size: 10px;">Authorization: Bearer &lt;jwt_token&gt;</text>
+  
+  <path d="M 400 130 L 400 160" class="arrow"/>
+  <text x="430" y="148" class="label">1. API Request</text>
+  
+  <!-- NGINX Ingress -->
+  <rect x="275" y="160" width="250" height="60" rx="8" class="box"/>
+  <text x="400" y="185" class="text">NGINX Ingress</text>
+  <text x="400" y="205" class="subtitle">TLS Termination</text>
+  
+  <path d="M 400 220 L 400 250" class="arrow"/>
+  <text x="430" y="238" class="label">2. Route to API</text>
+  
+  <!-- API Gateway -->
+  <rect x="250" y="250" width="300" height="80" rx="8" class="box"/>
+  <text x="400" y="278" class="text">API Gateway</text>
+  <text x="400" y="298" class="subtitle">Validate Token</text>
+  <text x="260" y="318" class="detail">• Verify signature • Check expiration • Validate issuer</text>
+  
+  <path d="M 400 330 L 400 360" class="arrow"/>
+  <text x="430" y="348" class="label">3. Token valid?</text>
+  
+  <!-- Token Valid Decision -->
+  <rect x="275" y="360" width="250" height="60" rx="8" class="decision-box"/>
+  <text x="400" y="385" class="text">Token Valid?</text>
+  <text x="400" y="405" class="subtitle">Check blacklist (Redis)</text>
+  
+  <path d="M 400 420 L 400 450" class="arrow"/>
+  <text x="430" y="438" class="label">Yes</text>
+  
+  <!-- Authorization Check -->
+  <rect x="250" y="450" width="300" height="70" rx="8" class="box"/>
+  <text x="400" y="478" class="text">Authorization Check</text>
+  <text x="260" y="498" class="detail">• Extract user_id from token</text>
+  <text x="260" y="513" class="detail">• Extract required permission (files:read)</text>
+  
+  <path d="M 400 520 L 400 550" class="arrow"/>
+  <text x="430" y="538" class="label">6. Check cache</text>
+  
+  <!-- Cache Check -->
+  <rect x="275" y="550" width="250" height="70" rx="8" class="cache-box"/>
+  <text x="400" y="578" class="text">Redis Cache</text>
+  <text x="400" y="598" class="subtitle">user:perms:{user_id}</text>
+  <text x="400" y="613" class="subtitle" style="font-size: 10px;">Cache hit → Use | Miss → Query DB</text>
+  
+  <path d="M 400 620 L 400 650" class="arrow"/>
+  <text x="430" y="638" class="label">7. Check permission</text>
+  
+  <!-- Permission Check -->
+  <rect x="250" y="650" width="300" height="70" rx="8" class="box"/>
+  <text x="400" y="678" class="text">Permission Check</text>
+  <text x="400" y="698" class="subtitle">files:read in set?</text>
+  <text x="260" y="713" class="detail">Verify user has required permission</text>
+  
+  <path d="M 400 720 L 400 750" class="arrow"/>
+  <text x="430" y="738" class="label">8. Check ownership</text>
+  
+  <!-- Ownership Check -->
+  <rect x="250" y="750" width="300" height="70" rx="8" class="db-box"/>
+  <text x="400" y="778" class="text">Ownership Check</text>
+  <text x="400" y="798" class="subtitle">SELECT owner_id FROM files</text>
+  <text x="260" y="813" class="detail">WHERE id = 12345</text>
+  
+  <path d="M 400 820 L 400 850" class="arrow"/>
+  <text x="430" y="838" class="label">9. Check sharing</text>
+  
+  <!-- Sharing Check -->
+  <rect x="250" y="850" width="300" height="70" rx="8" class="db-box"/>
+  <text x="400" y="878" class="text">Sharing Rules Check</text>
+  <text x="400" y="898" class="subtitle">SELECT * FROM shares</text>
+  <text x="260" y="913" class="detail">WHERE file_id = 12345</text>
+  
+  <path d="M 400 920 L 400 950" class="arrow"/>
+  <text x="430" y="938" class="label">10. Evaluate</text>
+  
+  <!-- Final Decision -->
+  <rect x="225" y="950" width="350" height="90" rx="8" class="decision-box"/>
+  <text x="400" y="978" class="text">Final Decision</text>
+  <text x="400" y="998" class="subtitle">Allow if:</text>
+  <text x="235" y="1018" class="detail">• HasPermission OR • IsOwner OR • IsShared</text>
+  <text x="400" y="1033" class="subtitle" style="font-size: 11px;">Context valid (time, location, device)</text>
+  
+  <path d="M 400 1040 L 400 1070" class="arrow"/>
+  <text x="430" y="1058" class="label">Authorized</text>
+  
+  <!-- Process Request -->
+  <rect x="275" y="1070" width="250" height="60" rx="8" class="box"/>
+  <text x="400" y="1095" class="text">Process Request</text>
+  <text x="400" y="1115" class="subtitle">Fetch file data</text>
+  
+  <path d="M 400 1130 L 400 1160" class="arrow"/>
+  <text x="430" y="1148" class="label">11. Return response</text>
+  
+  <!-- Client App Success -->
+  <rect x="275" y="1160" width="250" height="80" rx="8" class="success-box"/>
+  <text x="400" y="1195" class="text" style="font-size: 18px;">Client App</text>
+  <text x="400" y="1220" class="subtitle" style="font-size: 16px;">✓ Success!</text>
+  
+  <!-- Side note -->
+  <rect x="600" y="450" width="180" height="100" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="3,3" rx="5"/>
+  <text x="690" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="11px" fill="#666" font-weight="bold">
+    Performance
+  </text>
+  <text x="610" y="490" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    • Cache hit: ~1ms
+  </text>
+  <text x="610" y="505" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    • DB query: ~10ms
+  </text>
+  <text x="610" y="520" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    • Total: &lt;50ms
+  </text>
+  <text x="610" y="535" font-family="Arial, sans-serif" font-size="10px" fill="#666">
+    • Cache target: 95%+
+  </text>
+</svg>

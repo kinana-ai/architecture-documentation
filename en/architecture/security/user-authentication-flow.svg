@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1300" width="700" height="1300">
+  <defs>
+    <style>
+      .box { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .db-box { fill: #50C878; stroke: #2E7D4E; stroke-width: 2; }
+      .mfa-box { fill: #FFA726; stroke: #FB8C00; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 12px; fill: #fff; text-anchor: middle; }
+      .arrow { stroke: #4c51bf; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #4c51bf; font-weight: bold; }
+      .detail { font-family: Arial, sans-serif; font-size: 10px; fill: #4c51bf; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4c51bf" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">
+    Complete User Authentication Flow
+  </text>
+  
+  <!-- Step 1: User -->
+  <rect x="250" y="60" width="200" height="60" rx="8" class="box"/>
+  <text x="350" y="95" class="text">User</text>
+  
+  <path d="M 350 120 L 350 150" class="arrow"/>
+  <text x="380" y="138" class="label">1. Navigate to app.kinana.ai</text>
+  
+  <!-- Step 2: Application -->
+  <rect x="225" y="150" width="250" height="70" rx="8" class="box"/>
+  <text x="350" y="178" class="text">Application</text>
+  <text x="350" y="198" class="subtitle">Check session cookie</text>
+  <text x="350" y="213" class="subtitle" style="font-size: 10px;">Valid → Continue | None → Redirect</text>
+  
+  <path d="M 350 220 L 350 250" class="arrow"/>
+  <text x="380" y="238" class="label">2. Redirect to login</text>
+  
+  <!-- Step 3: Identity Service (first) -->
+  <rect x="225" y="250" width="250" height="60" rx="8" class="box"/>
+  <text x="350" y="275" class="text">Identity Service</text>
+  <text x="350" y="295" class="subtitle">(id.kinana.ai)</text>
+  
+  <path d="M 350 310 L 350 340" class="arrow"/>
+  <text x="380" y="328" class="label">3. Display login form</text>
+  
+  <!-- Step 4: User enters credentials -->
+  <rect x="225" y="340" width="250" height="70" rx="8" class="box"/>
+  <text x="350" y="368" class="text">User</text>
+  <text x="350" y="388" class="subtitle">Enter credentials</text>
+  <text x="350" y="403" class="subtitle" style="font-size: 10px;">(username + password)</text>
+  
+  <path d="M 350 410 L 350 440" class="arrow"/>
+  <text x="380" y="428" class="label">5. Submit login</text>
+  
+  <!-- Step 6: Identity Service (validate) -->
+  <rect x="200" y="440" width="300" height="80" rx="8" class="box"/>
+  <text x="350" y="468" class="text">Identity Service</text>
+  <text x="350" y="488" class="subtitle">Validate Credentials</text>
+  <text x="210" y="508" class="detail">• Query database • Verify password • Check status</text>
+  
+  <path d="M 350 520 L 350 550" class="arrow"/>
+  <text x="380" y="538" class="label">6. Validate</text>
+  
+  <!-- Step 7: User Database -->
+  <rect x="225" y="550" width="250" height="60" rx="8" class="db-box"/>
+  <text x="350" y="575" class="text">User Database</text>
+  <text x="350" y="595" class="subtitle">Credentials validated</text>
+  
+  <path d="M 350 610 L 350 640" class="arrow"/>
+  <text x="380" y="628" class="label">7. If MFA enabled</text>
+  
+  <!-- Step 8: MFA Challenge -->
+  <rect x="225" y="640" width="250" height="60" rx="8" class="mfa-box"/>
+  <text x="350" y="665" class="text">MFA Challenge</text>
+  <text x="350" y="685" class="subtitle">TOTP Request</text>
+  
+  <path d="M 350 700 L 350 730" class="arrow"/>
+  <text x="380" y="718" class="label">8. User enters MFA code</text>
+  
+  <!-- Step 9: Validate TOTP -->
+  <rect x="225" y="730" width="250" height="60" rx="8" class="mfa-box"/>
+  <text x="350" y="755" class="text">Validate TOTP</text>
+  <text x="350" y="775" class="subtitle">6-digit code verified</text>
+  
+  <path d="M 350 790 L 350 820" class="arrow"/>
+  <text x="380" y="808" class="label">9. Generate tokens</text>
+  
+  <!-- Step 10: Generate Tokens -->
+  <rect x="200" y="820" width="300" height="70" rx="8" class="box"/>
+  <text x="350" y="848" class="text">Generate Tokens</text>
+  <text x="210" y="868" class="detail">• Access Token (JWT, 1 hour)</text>
+  <text x="210" y="883" class="detail">• Refresh Token (30 days)</text>
+  
+  <path d="M 350 890 L 350 920" class="arrow"/>
+  <text x="380" y="908" class="label">10. Store session</text>
+  
+  <!-- Step 11: Create Session -->
+  <rect x="225" y="920" width="250" height="60" rx="8" style="fill: #FF6B6B; stroke: #C92A2A; stroke-width: 2;"/>
+  <text x="350" y="945" class="text">Create Session</text>
+  <text x="350" y="965" class="subtitle">(Store in Redis)</text>
+  
+  <path d="M 350 980 L 350 1010" class="arrow"/>
+  <text x="380" y="998" class="label">11. Set cookies</text>
+  
+  <!-- Step 12: Redirect to App -->
+  <rect x="200" y="1010" width="300" height="70" rx="8" class="box"/>
+  <text x="350" y="1038" class="text">Redirect to App</text>
+  <text x="210" y="1058" class="detail">• Access token (memory)</text>
+  <text x="210" y="1073" class="detail">• Refresh token (HTTP-only, Secure)</text>
+  
+  <path d="M 350 1080 L 350 1110" class="arrow"/>
+  <text x="380" y="1098" class="label">12. App loads</text>
+  
+  <!-- Final: User Authenticated -->
+  <rect x="225" y="1110" width="250" height="80" rx="8" style="fill: #43A047; stroke: #2E7D32; stroke-width: 2;"/>
+  <text x="350" y="1145" class="text" style="font-size: 18px;">User</text>
+  <text x="350" y="1170" class="subtitle" style="font-size: 16px;">✓ Authenticated!</text>
+</svg>

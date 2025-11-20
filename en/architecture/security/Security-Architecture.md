@@ -6,16 +6,16 @@ The Kinana Platform implements a comprehensive, defense-in-depth security archit
 
 ### Security Overview
 
-| Security Domain | Implementation | Status |
-|-----------------|----------------|--------|
-| **Network Security** | TLS 1.2+, NGINX Ingress, 18+ SSL certificates | ✅ Implemented |
-| **Authentication** | OAuth 2.0/OpenID Connect, JWT, MFA support | ✅ Implemented |
-| **Authorization** | RBAC, permission-based access control | ✅ Implemented |
-| **Data Encryption** | AES-256 at rest, TLS 1.2+ in transit | ✅ Implemented |
-| **Secret Management** | Azure Key Vault, Kubernetes Secrets | ✅ Implemented |
-| **Audit Logging** | Comprehensive logging, 7-year retention | ✅ Implemented |
-| **Incident Response** | Defined procedures, 1-hour critical response | ✅ Implemented |
-| **Compliance** | GDPR, ISO 27001, SOC 2 | 🔄 In Progress |
+| Security Domain       | Implementation                                | Status         |
+| --------------------- | --------------------------------------------- | -------------- |
+| **Network Security**  | TLS 1.2+, NGINX Ingress, 18+ SSL certificates | ✅ Implemented |
+| **Authentication**    | OAuth 2.0/OpenID Connect, JWT, MFA support    | ✅ Implemented |
+| **Authorization**     | RBAC, permission-based access control         | ✅ Implemented |
+| **Data Encryption**   | AES-256 at rest, TLS 1.2+ in transit          | ✅ Implemented |
+| **Secret Management** | Azure Key Vault, Kubernetes Secrets           | ✅ Implemented |
+| **Audit Logging**     | Comprehensive logging, 7-year retention       | ✅ Implemented |
+| **Incident Response** | Defined procedures, 1-hour critical response  | ✅ Implemented |
+| **Compliance**        | GDPR, ISO 27001, SOC 2                        | 🔄 In Progress |
 
 ## Security Principles
 
@@ -34,6 +34,7 @@ Each layer provides independent protection, ensuring that if one layer is compro
 **Principle:** Every user, service, and component receives only the minimum permissions necessary to perform its function.
 
 **Implementation:**
+
 ```yaml
 Users:
   - Default role: Guest (view public content only)
@@ -62,6 +63,7 @@ Infrastructure:
 ![Zero Trust Security Flow](zero-trust-flow.svg)
 
 **Features:**
+
 - No automatic trust for internal networks
 - Every request authenticated and authorized
 - Context-aware access decisions
@@ -74,6 +76,7 @@ Infrastructure:
 **Principle:** Security considerations integrated from the earliest design phase.
 
 **Development Lifecycle:**
+
 ```
 Requirements → Design → Implementation → Testing → Deployment
      ↓            ↓           ↓            ↓           ↓
@@ -82,6 +85,7 @@ Requirements → Design → Implementation → Testing → Deployment
 ```
 
 **Practices:**
+
 - Threat modeling during design
 - Security code reviews
 - Static code analysis
@@ -97,6 +101,7 @@ Requirements → Design → Implementation → Testing → Deployment
 #### External Network Protection
 
 **TLS/SSL Encryption:**
+
 ```yaml
 Configuration:
   Minimum Version: TLS 1.2
@@ -106,8 +111,7 @@ Configuration:
   Certificate Management: Automated (cert-manager)
   Rotation: Automatic before expiration
 
-Protocol Support:
-  ✅ TLS 1.3 (preferred)
+Protocol Support: ✅ TLS 1.3 (preferred)
   ✅ TLS 1.2 (minimum)
   ❌ TLS 1.1 (disabled)
   ❌ TLS 1.0 (disabled)
@@ -116,6 +120,7 @@ Protocol Support:
 ```
 
 **Certificate Management:**
+
 ```
 cert-manager Controller
        ↓
@@ -133,6 +138,7 @@ cert-manager Controller
 ```
 
 **Active Certificates (18+):**
+
 - Identity Services: `*.id.kinana.ai`, `id.kinana.ai`
 - Admin Services: `*.admin.kinana.ai`, `admin.kinana.ai`
 - Applications: `*.app.kinana.ai`, `app.kinana.ai`
@@ -147,6 +153,7 @@ cert-manager Controller
 #### Ingress Security
 
 **NGINX Ingress Controller Configuration:**
+
 ```yaml
 # Security Headers
 more_set_headers "X-Frame-Options: SAMEORIGIN";
@@ -173,20 +180,21 @@ enable-owasp-modsecurity-crs: false (future)
 
 **Security Headers Explained:**
 
-| Header | Purpose | Protection |
-|--------|---------|------------|
-| X-Frame-Options | Prevents clickjacking | Blocks iframe embedding |
-| X-Content-Type-Options | Prevents MIME sniffing | Forces declared content type |
-| X-XSS-Protection | XSS filter | Browser XSS protection |
-| Strict-Transport-Security (HSTS) | Enforces HTTPS | Prevents protocol downgrade |
-| Referrer-Policy | Controls referrer info | Limits data leakage |
-| Content-Security-Policy | Controls resource loading | Prevents XSS, injection |
+| Header                           | Purpose                   | Protection                   |
+| -------------------------------- | ------------------------- | ---------------------------- |
+| X-Frame-Options                  | Prevents clickjacking     | Blocks iframe embedding      |
+| X-Content-Type-Options           | Prevents MIME sniffing    | Forces declared content type |
+| X-XSS-Protection                 | XSS filter                | Browser XSS protection       |
+| Strict-Transport-Security (HSTS) | Enforces HTTPS            | Prevents protocol downgrade  |
+| Referrer-Policy                  | Controls referrer info    | Limits data leakage          |
+| Content-Security-Policy          | Controls resource loading | Prevents XSS, injection      |
 
 ---
 
 #### Internal Network Security
 
 **Kubernetes Network Policies:**
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -200,49 +208,50 @@ spec:
   policyTypes:
     - Ingress
     - Egress
-  
+
   # Ingress Rules
   ingress:
     # Allow from ingress controller
     - from:
-      - namespaceSelector:
-          matchLabels:
-            name: ingress-nginx
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
       ports:
-      - protocol: TCP
-        port: 80
-  
+        - protocol: TCP
+          port: 80
+
   # Egress Rules
   egress:
     # Allow to cache (Redis)
     - to:
-      - podSelector:
-          matchLabels:
-            app: cache
+        - podSelector:
+            matchLabels:
+              app: cache
       ports:
-      - protocol: TCP
-        port: 6379
-    
+        - protocol: TCP
+          port: 6379
+
     # Allow to database
     - to:
-      - podSelector:
-          matchLabels:
-            app: fsdb
+        - podSelector:
+            matchLabels:
+              app: fsdb
       ports:
-      - protocol: TCP
-        port: 3306
-    
+        - protocol: TCP
+          port: 3306
+
     # Allow DNS
     - to:
-      - namespaceSelector:
-          matchLabels:
-            name: kube-system
+        - namespaceSelector:
+            matchLabels:
+              name: kube-system
       ports:
-      - protocol: UDP
-        port: 53
+        - protocol: UDP
+          port: 53
 ```
 
 **Service Mesh (Future - Istio/Linkerd):**
+
 ```yaml
 Features:
   - Mutual TLS between services
@@ -267,39 +276,12 @@ Benefits:
 
 **OAuth 2.0 / OpenID Connect Implementation:**
 
-```
-┌──────────────┐
-│    User      │
-└──────┬───────┘
-       │ 1. Login Request
-       ▼
-┌──────────────────────────┐
-│  Identity Service        │
-│  (id.kinana.ai)         │
-└──────┬───────────────────┘
-       │ 2. Validate Credentials
-       │    - Password hash (bcrypt)
-       │    - Account status
-       │    - MFA if enabled
-       ▼
-┌──────────────────────────┐
-│  User Database           │
-└──────┬───────────────────┘
-       │ 3. User Valid
-       ▼
-┌──────────────────────────┐
-│  Generate Tokens         │
-│  - Access Token (JWT)    │
-│  - Refresh Token         │
-└──────┬───────────────────┘
-       │ 4. Return Tokens
-       ▼
-┌──────────────┐
-│    User      │
-└──────────────┘
-```
+![OAuth 2.0 Authentication Flow](oauth-flow.svg)
+
+The OAuth 2.0 / OpenID Connect flow handles user authentication and token generation.
 
 **JWT Token Structure:**
+
 ```json
 {
   "header": {
@@ -316,11 +298,7 @@ Benefits:
     "nbf": 1699996400,
     "jti": "token-uuid",
     "roles": ["student", "user"],
-    "permissions": [
-      "files:read",
-      "files:write",
-      "courses:read"
-    ],
+    "permissions": ["files:read", "files:write", "courses:read"],
     "tenant_id": "tenant_001",
     "email": "user@example.com",
     "email_verified": true,
@@ -331,6 +309,7 @@ Benefits:
 ```
 
 **Token Lifecycle Management:**
+
 ```yaml
 Access Token:
   Lifetime: 1 hour
@@ -354,20 +333,19 @@ Token Validation:
 ```
 
 **Multi-Factor Authentication (MFA):**
+
 ```yaml
 Support: TOTP (Time-based One-Time Password)
 Apps: Google Authenticator, Authy, Microsoft Authenticator
 
-Enrollment Flow:
-  1. User enables MFA in settings
+Enrollment Flow: 1. User enables MFA in settings
   2. System generates secret key
   3. Display QR code
   4. User scans with authenticator app
   5. User enters verification code
   6. System validates and enables MFA
 
-Login Flow:
-  1. User provides username/password
+Login Flow: 1. User provides username/password
   2. System validates credentials
   3. Request MFA code
   4. User enters 6-digit code
@@ -392,16 +370,17 @@ User → Roles → Permissions → Resources
 
 **Standard Roles:**
 
-| Role | Description | Typical Permissions |
-|------|-------------|---------------------|
-| **Super Admin** | Platform administrator | All permissions across all tenants |
-| **Tenant Admin** | Organization administrator | Manage users, content, settings within tenant |
-| **Instructor** | Course instructor | Create/manage courses, grade students, view analytics |
-| **Content Creator** | Content developer | Create/edit content, upload files |
-| **Student** | Course participant | View content, submit assignments, take assessments |
-| **Guest** | Limited access user | View public content only |
+| Role                | Description                | Typical Permissions                                   |
+| ------------------- | -------------------------- | ----------------------------------------------------- |
+| **Super Admin**     | Platform administrator     | All permissions across all tenants                    |
+| **Tenant Admin**    | Organization administrator | Manage users, content, settings within tenant         |
+| **Instructor**      | Course instructor          | Create/manage courses, grade students, view analytics |
+| **Content Creator** | Content developer          | Create/edit content, upload files                     |
+| **Student**         | Course participant         | View content, submit assignments, take assessments    |
+| **Guest**           | Limited access user        | View public content only                              |
 
 **Permission Model:**
+
 ```
 Format: {resource}:{action}
 
@@ -419,39 +398,41 @@ Examples:
 ```
 
 **Dynamic Authorization:**
+
 ```javascript
 async function checkPermission(userId, resource, action) {
   // 1. Get user roles
   const roles = await getUserRoles(userId);
-  
+
   // 2. Get role permissions
   const permissions = await getRolePermissions(roles);
-  
+
   // 3. Check resource ownership
   const isOwner = await checkOwnership(userId, resource);
-  
+
   // 4. Check explicit permissions
   const hasPermission = permissions.includes(`${resource}:${action}`);
-  
+
   // 5. Check sharing rules
   const isShared = await checkSharing(userId, resource);
-  
+
   // 6. Evaluate context
   const context = {
     time: new Date(),
     ipAddress: request.ip,
-    userAgent: request.headers['user-agent'],
-    location: await getLocation(request.ip)
+    userAgent: request.headers["user-agent"],
+    location: await getLocation(request.ip),
   };
-  
+
   const contextValid = await evaluateContext(context);
-  
+
   // 7. Make decision
   return (hasPermission || isOwner || isShared) && contextValid;
 }
 ```
 
 **Permission Caching:**
+
 ```javascript
 // Cache user permissions for 30 minutes
 const cacheKey = `user:perms:${userId}`;
@@ -474,6 +455,7 @@ return permissions;
 **API Gateway Protection:**
 
 **1. Authentication:**
+
 ```yaml
 Method: Bearer Token (JWT)
 Header: Authorization: Bearer <token>
@@ -486,6 +468,7 @@ Validation:
 ```
 
 **2. Rate Limiting:**
+
 ```yaml
 Global Limits:
   - 100 requests/minute per user
@@ -509,61 +492,64 @@ Headers:
 ```
 
 **3. Input Validation:**
+
 ```javascript
 const validateFileUpload = (req) => {
   // Size validation
   if (req.file.size > 1500 * 1024 * 1024) {
-    throw new Error('File too large');
+    throw new Error("File too large");
   }
-  
+
   // Type validation
   const allowedTypes = [
-    'application/pdf',
-    'image/jpeg',
-    'image/png',
-    'application/msword'
+    "application/pdf",
+    "image/jpeg",
+    "image/png",
+    "application/msword",
   ];
-  
+
   if (!allowedTypes.includes(req.file.mimetype)) {
-    throw new Error('Invalid file type');
+    throw new Error("Invalid file type");
   }
-  
+
   // Filename validation (prevent path traversal)
   const filename = req.file.originalname;
-  if (filename.includes('..') || filename.includes('/')) {
-    throw new Error('Invalid filename');
+  if (filename.includes("..") || filename.includes("/")) {
+    throw new Error("Invalid filename");
   }
-  
+
   // Scan for malware (future)
   // await scanForMalware(req.file);
-  
+
   return true;
 };
 ```
 
 **4. SQL Injection Prevention:**
+
 ```javascript
 // BAD - Vulnerable to SQL injection
 const query = `SELECT * FROM files WHERE name = '${userInput}'`;
 
 // GOOD - Parameterized query
-const query = 'SELECT * FROM files WHERE name = ?';
+const query = "SELECT * FROM files WHERE name = ?";
 const results = await db.query(query, [userInput]);
 
 // BETTER - ORM with built-in protection
 const results = await File.findAll({
-  where: { name: userInput }
+  where: { name: userInput },
 });
 ```
 
 **5. XSS Prevention:**
+
 ```javascript
 // Input sanitization
-const sanitize = require('sanitize-html');
+const sanitize = require("sanitize-html");
 
 const cleanInput = sanitize(userInput, {
   allowedTags: [],
-  allowedAttributes: {}
+  allowedAttributes: {},
 });
 
 // Output encoding
@@ -578,6 +564,7 @@ const escapeHtml = (unsafe) => {
 ```
 
 **6. CSRF Protection:**
+
 ```yaml
 Implementation: SameSite cookies + CSRF tokens
 
@@ -602,6 +589,7 @@ CSRF Tokens:
 **Encryption at Rest:**
 
 **Azure Blob Storage:**
+
 ```yaml
 Method: Azure Storage Service Encryption (SSE)
 Algorithm: AES-256
@@ -617,6 +605,7 @@ Features:
 ```
 
 **MySQL Database:**
+
 ```sql
 -- Enable Transparent Data Encryption (TDE)
 ALTER TABLE files ENCRYPTION='Y';
@@ -624,14 +613,15 @@ ALTER TABLE folders ENCRYPTION='Y';
 ALTER TABLE permissions ENCRYPTION='Y';
 
 -- Verify encryption
-SELECT 
+SELECT
   table_name,
-  create_options 
-FROM information_schema.tables 
+  create_options
+FROM information_schema.tables
 WHERE table_schema = 'kinana_db';
 ```
 
 **SQL Server Database:**
+
 ```sql
 -- Enable TDE
 USE master;
@@ -648,39 +638,40 @@ ALTER DATABASE lti_db SET ENCRYPTION ON;
 ```
 
 **Sensitive Data Encryption (Field-Level):**
+
 ```javascript
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 // Encrypt sensitive field
 function encryptField(plaintext, key) {
   const iv = crypto.randomBytes(16);
-  const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);
-  
-  let encrypted = cipher.update(plaintext, 'utf8', 'hex');
-  encrypted += cipher.final('hex');
-  
+  const cipher = crypto.createCipheriv("aes-256-gcm", key, iv);
+
+  let encrypted = cipher.update(plaintext, "utf8", "hex");
+  encrypted += cipher.final("hex");
+
   const authTag = cipher.getAuthTag();
-  
+
   return {
-    iv: iv.toString('hex'),
+    iv: iv.toString("hex"),
     encrypted: encrypted,
-    authTag: authTag.toString('hex')
+    authTag: authTag.toString("hex"),
   };
 }
 
 // Decrypt sensitive field
 function decryptField(encrypted, key) {
   const decipher = crypto.createDecipheriv(
-    'aes-256-gcm',
+    "aes-256-gcm",
     key,
-    Buffer.from(encrypted.iv, 'hex')
+    Buffer.from(encrypted.iv, "hex")
   );
-  
-  decipher.setAuthTag(Buffer.from(encrypted.authTag, 'hex'));
-  
-  let decrypted = decipher.update(encrypted.encrypted, 'hex', 'utf8');
-  decrypted += decipher.final('utf8');
-  
+
+  decipher.setAuthTag(Buffer.from(encrypted.authTag, "hex"));
+
+  let decrypted = decipher.update(encrypted.encrypted, "hex", "utf8");
+  decrypted += decipher.final("utf8");
+
   return decrypted;
 }
 ```
@@ -690,10 +681,10 @@ function decryptField(encrypted, key) {
 **Encryption in Transit:**
 
 **External Connections:**
+
 ```yaml
 Protocol: TLS 1.2+ (TLS 1.3 preferred)
-Cipher Suites (Preferred Order):
-  1. TLS_AES_256_GCM_SHA384
+Cipher Suites (Preferred Order): 1. TLS_AES_256_GCM_SHA384
   2. TLS_CHACHA20_POLY1305_SHA256
   3. TLS_AES_128_GCM_SHA256
   4. ECDHE-RSA-AES256-GCM-SHA384
@@ -709,11 +700,13 @@ Certificate Validation:
 **Internal Connections:**
 
 **Current (Unencrypted HTTP):**
+
 ```
 Service A → HTTP → Service B (within Kubernetes)
 ```
 
 **Future (Service Mesh with mTLS):**
+
 ```
 Service A → mTLS → Service B
   ↓                    ↓
@@ -722,6 +715,7 @@ Service A → mTLS → Service B
 ```
 
 **Database Connections:**
+
 ```yaml
 MySQL:
   - TLS support: Available
@@ -744,55 +738,52 @@ Redis:
 
 **Data Classification:**
 
-| Level | Description | Examples | Controls |
-|-------|-------------|----------|----------|
-| **Public** | Non-sensitive, publicly available | Marketing materials, public documents | Standard encryption |
-| **Internal** | Internal use only | Course materials, internal docs | Encryption + authentication |
-| **Confidential** | Sensitive business data | Student records, grades, PII | Encryption + RBAC + audit logging |
-| **Restricted** | Highly sensitive | Financial data, SSN, passwords | Encryption + MFA + approval + detailed audit |
+| Level            | Description                       | Examples                              | Controls                                     |
+| ---------------- | --------------------------------- | ------------------------------------- | -------------------------------------------- |
+| **Public**       | Non-sensitive, publicly available | Marketing materials, public documents | Standard encryption                          |
+| **Internal**     | Internal use only                 | Course materials, internal docs       | Encryption + authentication                  |
+| **Confidential** | Sensitive business data           | Student records, grades, PII          | Encryption + RBAC + audit logging            |
+| **Restricted**   | Highly sensitive                  | Financial data, SSN, passwords        | Encryption + MFA + approval + detailed audit |
 
 **Access Control Matrix:**
 
-```
-┌─────────────────┬──────────┬──────────┬──────────┬──────────┐
-│                 │  Public  │ Internal │Confident.│Restricted│
-├─────────────────┼──────────┼──────────┼──────────┼──────────┤
-│ Guest           │    ✓     │    ✗     │    ✗     │    ✗     │
-│ Student         │    ✓     │    ✓     │  Own Only│    ✗     │
-│ Instructor      │    ✓     │    ✓     │  Course  │    ✗     │
-│ Content Creator │    ✓     │    ✓     │    ✓     │    ✗     │
-│ Tenant Admin    │    ✓     │    ✓     │    ✓     │  Limited │
-│ Super Admin     │    ✓     │    ✓     │    ✓     │    ✓     │
-└─────────────────┴──────────┴──────────┴──────────┴──────────┘
-```
+| Role                | Public | Internal | Confidential | Restricted |
+| ------------------- | ------ | -------- | ------------ | ---------- |
+| **Guest**           | ✓      | ✗        | ✗            | ✗          |
+| **Student**         | ✓      | ✓        | Own Only     | ✗          |
+| **Instructor**      | ✓      | ✓        | Course       | ✗          |
+| **Content Creator** | ✓      | ✓        | ✓            | ✗          |
+| **Tenant Admin**    | ✓      | ✓        | ✓            | Limited    |
+| **Super Admin**     | ✓      | ✓        | ✓            | ✓          |
 
 **Time-Limited Access (SAS Tokens):**
+
 ```javascript
 // Generate time-limited SAS token for file access
 function generateSASToken(blobName, permissions, expiryMinutes) {
   const startDate = new Date();
   const expiryDate = new Date(startDate);
   expiryDate.setMinutes(startDate.getMinutes() + expiryMinutes);
-  
+
   const sharedAccessPolicy = {
     AccessPolicy: {
       Permissions: permissions, // 'r' for read, 'w' for write
       Start: startDate,
-      Expiry: expiryDate
-    }
+      Expiry: expiryDate,
+    },
   };
-  
+
   const sasToken = blobService.generateSharedAccessSignature(
     containerName,
     blobName,
     sharedAccessPolicy
   );
-  
+
   return sasToken;
 }
 
 // Usage: 15-minute read access
-const token = generateSASToken('document.pdf', 'r', 15);
+const token = generateSASToken("document.pdf", "r", 15);
 const url = `${baseUrl}/${blobName}?${token}`;
 ```
 
@@ -801,59 +792,61 @@ const url = `${baseUrl}/${blobName}?${token}`;
 #### Data Loss Prevention (DLP)
 
 **Sensitive Data Detection:**
+
 ```javascript
 // Detect PII in text
 const patterns = {
   ssn: /\b\d{3}-\d{2}-\d{4}\b/g,
   creditCard: /\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/g,
   email: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g,
-  phone: /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g
+  phone: /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g,
 };
 
 function detectSensitiveData(text) {
   const findings = [];
-  
+
   for (const [type, pattern] of Object.entries(patterns)) {
     const matches = text.match(pattern);
     if (matches) {
       findings.push({
         type: type,
         count: matches.length,
-        samples: matches.slice(0, 3) // First 3 matches
+        samples: matches.slice(0, 3), // First 3 matches
       });
     }
   }
-  
+
   return findings;
 }
 
 // Redact sensitive data
 function redactSensitiveData(text) {
   let redacted = text;
-  
+
   for (const pattern of Object.values(patterns)) {
-    redacted = redacted.replace(pattern, '[REDACTED]');
+    redacted = redacted.replace(pattern, "[REDACTED]");
   }
-  
+
   return redacted;
 }
 ```
 
 **Data Masking:**
+
 ```javascript
 // Mask sensitive data in logs
 function maskEmail(email) {
-  const [name, domain] = email.split('@');
-  const masked = name[0] + '*'.repeat(name.length - 2) + name[name.length - 1];
+  const [name, domain] = email.split("@");
+  const masked = name[0] + "*".repeat(name.length - 2) + name[name.length - 1];
   return `${masked}@${domain}`;
 }
 
 function maskCreditCard(card) {
-  return '*'.repeat(12) + card.slice(-4);
+  return "*".repeat(12) + card.slice(-4);
 }
 
 function maskSSN(ssn) {
-  return '***-**-' + ssn.slice(-4);
+  return "***-**-" + ssn.slice(-4);
 }
 
 // Log safely
@@ -867,6 +860,7 @@ console.log(`User ${maskEmail(user.email)} uploaded file`);
 #### Kubernetes Security
 
 **Pod Security Standards:**
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -879,63 +873,64 @@ spec:
     runAsUser: 1000
     runAsGroup: 3000
     fsGroup: 2000
-    
+
     # SELinux options
     seLinuxOptions:
       level: "s0:c123,c456"
-    
+
     # Seccomp profile
     seccompProfile:
       type: RuntimeDefault
-  
+
   containers:
-  - name: app
-    image: uepcr.azurecr.io/kinanaapi:1.0.0
-    
-    securityContext:
-      # Drop all capabilities
-      capabilities:
-        drop:
-          - ALL
-        add:
-          - NET_BIND_SERVICE
-      
-      # Prevent privilege escalation
-      allowPrivilegeEscalation: false
-      
-      # Read-only root filesystem
-      readOnlyRootFilesystem: true
-      
-      # Run as non-root
-      runAsNonRoot: true
-      runAsUser: 1000
-    
-    # Resource limits
-    resources:
-      requests:
-        memory: "256Mi"
-        cpu: "100m"
-      limits:
-        memory: "1Gi"
-        cpu: "1000m"
-    
-    # Volume mounts (read-only where possible)
-    volumeMounts:
-    - name: tmp
-      mountPath: /tmp
-    - name: config
-      mountPath: /etc/config
-      readOnly: true
-  
+    - name: app
+      image: uepcr.azurecr.io/kinanaapi:1.0.0
+
+      securityContext:
+        # Drop all capabilities
+        capabilities:
+          drop:
+            - ALL
+          add:
+            - NET_BIND_SERVICE
+
+        # Prevent privilege escalation
+        allowPrivilegeEscalation: false
+
+        # Read-only root filesystem
+        readOnlyRootFilesystem: true
+
+        # Run as non-root
+        runAsNonRoot: true
+        runAsUser: 1000
+
+      # Resource limits
+      resources:
+        requests:
+          memory: "256Mi"
+          cpu: "100m"
+        limits:
+          memory: "1Gi"
+          cpu: "1000m"
+
+      # Volume mounts (read-only where possible)
+      volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        - name: config
+          mountPath: /etc/config
+          readOnly: true
+
   volumes:
-  - name: tmp
-    emptyDir: {}
-  - name: config
-    configMap:
-      name: app-config
+    - name: tmp
+      emptyDir: {}
+    - name: config
+      configMap:
+        name: app-config
 ```
 
 **RBAC Configuration:**
+
 ```yaml
 # Service Account
 apiVersion: v1
@@ -952,12 +947,12 @@ metadata:
   name: api-role
   namespace: kinana-dev
 rules:
-- apiGroups: [""]
-  resources: ["configmaps", "secrets"]
-  verbs: ["get", "list"]
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "list"]
+  - apiGroups: [""]
+    resources: ["configmaps", "secrets"]
+    verbs: ["get", "list"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]
 
 ---
 # RoleBinding
@@ -967,9 +962,9 @@ metadata:
   name: api-role-binding
   namespace: kinana-dev
 subjects:
-- kind: ServiceAccount
-  name: api-service-account
-  namespace: kinana-dev
+  - kind: ServiceAccount
+    name: api-service-account
+    namespace: kinana-dev
 roleRef:
   kind: Role
   name: api-role
@@ -981,9 +976,9 @@ roleRef:
 #### Container Security
 
 **Image Security:**
+
 ```yaml
-Best Practices:
-  1. Use official base images
+Best Practices: 1. Use official base images
   2. Minimal image layers
   3. No secrets in images
   4. Regular security scans
@@ -994,7 +989,7 @@ Scanning:
   - Azure Container Registry scanning
   - Trivy for vulnerability scanning
   - Snyk for dependency scanning
-  
+
 Vulnerabilities:
   - Critical: Block deployment
   - High: Review required
@@ -1003,6 +998,7 @@ Vulnerabilities:
 ```
 
 **Dockerfile Security:**
+
 ```dockerfile
 # Use specific version (not latest)
 FROM node:18.17.0-alpine AS base
@@ -1039,6 +1035,7 @@ CMD ["node", "server.js"]
 ```
 
 **Image Scanning:**
+
 ```bash
 # Scan with Trivy
 trivy image uepcr.azurecr.io/kinanaapi:1.0.0
@@ -1055,28 +1052,13 @@ az acr task run --registry uepcr --name scan-task
 #### Azure Key Vault
 
 **Architecture:**
-```
-┌──────────────────────────────────────────────────┐
-│              Applications / Services              │
-└────────────────────┬─────────────────────────────┘
-                     │
-                     │ Managed Identity
-                     │ (No credentials)
-                     ▼
-┌──────────────────────────────────────────────────┐
-│            Azure Key Vault (ibt-prd-kv-01)       │
-│                                                  │
-│  ┌──────────────┐  ┌──────────────┐  ┌────────┐│
-│  │   Secrets    │  │     Keys     │  │ Certs  ││
-│  │              │  │              │  │        ││
-│  │ • DB Pass    │  │ • Encryption │  │ • TLS  ││
-│  │ • API Keys   │  │ • Signing    │  │ • SSL  ││
-│  │ • Tokens     │  │              │  │        ││
-│  └──────────────┘  └──────────────┘  └────────┘│
-└──────────────────────────────────────────────────┘
-```
+
+![Azure Key Vault Architecture](azure-keyvault-architecture.svg)
+
+Azure Key Vault provides centralized secret management with managed identity authentication for secure, credential-less access.
 
 **Stored Secrets:**
+
 ```yaml
 Database Credentials:
   - mysql-root-password
@@ -1098,6 +1080,7 @@ Service Credentials:
 ```
 
 **Access Control:**
+
 ```yaml
 AKS Managed Identity:
   Permissions: Get, List (Secrets only)
@@ -1115,6 +1098,7 @@ Admin Users:
 ```
 
 **Secret Rotation:**
+
 ```yaml
 Automatic Rotation:
   - TLS certificates: via cert-manager
@@ -1125,8 +1109,7 @@ Manual Rotation:
   - Encryption keys: Annual
   - Service credentials: Quarterly
 
-Process:
-  1. Generate new secret
+Process: 1. Generate new secret
   2. Store in Key Vault
   3. Update applications (zero-downtime)
   4. Verify functionality
@@ -1138,6 +1121,7 @@ Process:
 #### Kubernetes Secrets
 
 **Secret Types:**
+
 ```yaml
 # Docker registry credentials
 kubectl create secret docker-registry uepcr \
@@ -1157,6 +1141,7 @@ kubectl create secret generic database-credentials \
 ```
 
 **Best Practices:**
+
 ```yaml
 1. Never commit secrets to Git
 2. Use external secrets operator
@@ -1169,6 +1154,7 @@ kubectl create secret generic database-credentials \
 ```
 
 **External Secrets Operator (Future):**
+
 ```yaml
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
@@ -1184,9 +1170,9 @@ spec:
     name: database-credentials
     creationPolicy: Owner
   data:
-  - secretKey: password
-    remoteRef:
-      key: mysql-root-password
+    - secretKey: password
+      remoteRef:
+        key: mysql-root-password
 ```
 
 ---
@@ -1195,282 +1181,25 @@ spec:
 
 ### User Authentication Flow
 
-```
-┌─────────────┐
-│    User     │
-└──────┬──────┘
-       │
-       │ 1. Navigate to app.kinana.ai
-       ▼
-┌──────────────────────┐
-│  Application         │
-└──────┬───────────────┘
-       │
-       │ 2. Check session cookie
-       │    ├─ Valid session → Continue
-       │    └─ No session → Redirect to login
-       ▼
-┌──────────────────────┐
-│  Identity Service    │
-│  (id.kinana.ai)     │
-└──────┬───────────────┘
-       │
-       │ 3. Display login form
-       ▼
-┌─────────────┐
-│    User     │ 4. Enter credentials
-└──────┬──────┘    (username + password)
-       │
-       │ 5. Submit login
-       ▼
-┌──────────────────────┐
-│  Identity Service    │
-└──────┬───────────────┘
-       │
-       │ 6. Validate credentials
-       │    ├─ Query database
-       │    ├─ Verify password hash (bcrypt)
-       │    └─ Check account status
-       ▼
-┌──────────────────────┐
-│  User Database       │
-└──────┬───────────────┘
-       │
-       │ 7. If valid and MFA enabled
-       ▼
-┌──────────────────────┐
-│  MFA Challenge       │
-└──────┬───────────────┘
-       │
-       │ 8. User enters MFA code
-       ▼
-┌──────────────────────┐
-│  Validate TOTP       │
-└──────┬───────────────┘
-       │
-       │ 9. Generate tokens
-       │    ├─ Access Token (JWT, 1 hour)
-       │    └─ Refresh Token (30 days)
-       ▼
-┌──────────────────────┐
-│  Create Session      │
-│  (Store in Redis)    │
-└──────┬───────────────┘
-       │
-       │ 10. Set cookies
-       │     ├─ Access token (memory)
-       │     └─ Refresh token (HTTP-only, Secure)
-       ▼
-┌──────────────────────┐
-│  Redirect to App     │
-└──────┬───────────────┘
-       │
-       │ 11. App loads with valid session
-       ▼
-┌─────────────┐
-│    User     │ Authenticated!
-└─────────────┘
-```
+![User Authentication Flow](user-authentication-flow.svg)
+
+The complete user authentication flow includes session checking, credential validation, optional MFA, token generation, and session creation. The flow ensures secure authentication with multiple validation checkpoints.
 
 ---
 
 ### API Request Authorization Flow
 
-```
-┌─────────────┐
-│ Client App  │
-└──────┬──────┘
-       │
-       │ 1. API Request
-       │    GET /api/files/12345
-       │    Authorization: Bearer <jwt_token>
-       ▼
-┌──────────────────────┐
-│  NGINX Ingress       │
-└──────┬───────────────┘
-       │
-       │ 2. Route to API Gateway
-       ▼
-┌──────────────────────┐
-│  API Gateway         │
-└──────┬───────────────┘
-       │
-       │ 3. Extract & validate token
-       │    ├─ Verify signature (RS256)
-       │    ├─ Check expiration
-       │    ├─ Validate issuer
-       │    └─ Check blacklist (Redis)
-       ▼
-┌──────────────────────┐
-│  Token Valid?        │
-└──────┬───────────────┘
-       │
-       │ Yes
-       │
-       │ 4. Extract user_id from token
-       │ 5. Extract required permission (files:read)
-       ▼
-┌──────────────────────┐
-│  Authorization Check │
-└──────┬───────────────┘
-       │
-       │ 6. Check Redis cache
-       │    user:perms:{user_id}
-       ▼
-┌──────────────────────┐
-│  Cache Hit?          │
-└──────┬───────────────┘
-       │
-       │ No → Query database
-       │ Yes → Use cached permissions
-       ▼
-┌──────────────────────┐
-│  Permission Check    │
-│  files:read in set?  │
-└──────┬───────────────┘
-       │
-       │ 7. Check resource ownership
-       │    SELECT owner_id FROM files WHERE id = 12345
-       ▼
-┌──────────────────────┐
-│  Ownership Check     │
-└──────┬───────────────┘
-       │
-       │ 8. Check sharing rules
-       │    SELECT * FROM shares WHERE file_id = 12345
-       ▼
-┌──────────────────────┐
-│  Final Decision      │
-│  Allow OR            │
-│  (HasPermission OR   │
-│   IsOwner OR         │
-│   IsShared)          │
-└──────┬───────────────┘
-       │
-       │ Authorized
-       │
-       │ 9. Process request
-       ▼
-┌──────────────────────┐
-│  Fetch File Data     │
-└──────┬───────────────┘
-       │
-       │ 10. Return response
-       ▼
-┌─────────────┐
-│ Client App  │ Success!
-└─────────────┘
-```
+![API Request Authorization Flow](api-authorization-flow.svg)
+
+The API authorization flow validates JWT tokens, checks permissions through Redis cache or database, verifies resource ownership, evaluates sharing rules, and makes final authorization decisions based on multiple factors including context evaluation.
 
 ---
 
 ### LTI Launch Security Flow
 
-```
-┌──────────────┐
-│     LMS      │
-└──────┬───────┘
-       │
-       │ 1. User clicks LTI link
-       │    Initiates OIDC login
-       ▼
-┌──────────────────────┐
-│  Kinana LTI Service  │
-└──────┬───────────────┘
-       │
-       │ 2. Redirect to LMS auth
-       │    with state & nonce
-       ▼
-┌──────────────┐
-│     LMS      │
-└──────┬───────┘
-       │
-       │ 3. LMS validates user
-       │    Generates ID token (JWT)
-       ▼
-┌──────────────────────┐
-│  Kinana LTI Service  │
-└──────┬───────────────┘
-       │
-       │ 4. Validate ID token
-       │    ├─ Fetch JWKS from LMS
-       │    ├─ Verify signature
-       │    ├─ Check nonce (prevent replay)
-       │    ├─ Check state (CSRF protection)
-       │    └─ Validate claims
-       ▼
-┌──────────────────────┐
-│  Token Valid?        │
-└──────┬───────────────┘
-       │
-       │ Yes
-       │
-       │ 5. Extract user context
-       │    ├─ user_id
-       │    ├─ roles
-       │    ├─ course_context
-       │    └─ resource_link
-       ▼
-┌──────────────────────┐
-│  Create Session      │
-│  (SQL Server)        │
-└──────┬───────────────┘
-       │
-       │ 6. Generate app token (JWT)
-       │    Contains: launch_id, user_id,
-       │             context, permissions
-       ▼
-┌──────────────────────┐
-│  Redirect to App     │
-│  with token          │
-└──────┬───────────────┘
-       │
-       │ 7. App validates token
-       ▼
-┌──────────────────────┐
-│  Application         │
-│  (Authenticated)     │
-└──────────────────────┘
+![LTI Launch Security Flow](lti-launch-flow.svg)
 
-Later: Grade Passback
-
-┌──────────────────────┐
-│  Application         │
-└──────┬───────────────┘
-       │
-       │ 8. Submit grade
-       │    POST /ags/scores
-       ▼
-┌──────────────────────┐
-│  LTI Service         │
-└──────┬───────────────┘
-       │
-       │ 9. Get OAuth token
-       │    from LMS (client credentials)
-       ▼
-┌──────────────┐
-│     LMS      │
-└──────┬───────┘
-       │
-       │ 10. Return access token
-       ▼
-┌──────────────────────┐
-│  LTI Service         │
-└──────┬───────────────┘
-       │
-       │ 11. Submit grade with token
-       │     POST to AGS endpoint
-       ▼
-┌──────────────┐
-│     LMS      │
-└──────┬───────┘
-       │
-       │ 12. Validate token & save grade
-       ▼
-┌──────────────────────┐
-│  Grade recorded!     │
-└──────────────────────┘
-```
+The LTI 1.3 launch flow follows OIDC authentication with comprehensive security validations including nonce checking, state verification, JWT signature validation, and JWKS key verification. The flow also includes grade passback via Assignment and Grade Services (AGS) using OAuth 2.0 client credentials flow.
 
 ---
 
@@ -1479,6 +1208,7 @@ Later: Grade Passback
 ### Audit Logging
 
 **What to Log:**
+
 ```yaml
 Authentication Events:
   - Login attempts (success/failure)
@@ -1514,6 +1244,7 @@ Security Events:
 ```
 
 **Log Format (JSON):**
+
 ```json
 {
   "timestamp": "2024-11-19T10:30:00.123Z",
@@ -1547,6 +1278,7 @@ Security Events:
 ```
 
 **Log Retention:**
+
 ```yaml
 Security Logs: 1 year
 Audit Logs: 7 years (compliance)
@@ -1559,6 +1291,7 @@ Error Logs: 90 days
 ### Security Monitoring
 
 **Real-Time Alerts:**
+
 ```yaml
 Critical Alerts (Immediate):
   - Multiple failed login attempts (5 in 5 minutes)
@@ -1587,47 +1320,23 @@ Low Priority (Daily digest):
   - Storage quota exceeded
 ```
 
-**Monitoring Dashboard:**
-```
-┌─────────────────────────────────────────────────┐
-│            Security Dashboard                    │
-├─────────────────────────────────────────────────┤
-│                                                  │
-│  Failed Logins (Last Hour): 23                  │
-│  Active Sessions: 1,247                         │
-│  API Requests: 145,892/hour                     │
-│                                                  │
-│  ┌──────────────┐  ┌──────────────┐            │
-│  │ Auth Success │  │ Auth Failure │            │
-│  │  Rate: 99.8% │  │  Count: 23   │            │
-│  └──────────────┘  └──────────────┘            │
-│                                                  │
-│  Recent Security Events:                        │
-│  • 10:45 - Failed login from 203.0.113.1       │
-│  • 10:42 - Permission denied (user_456)        │
-│  • 10:40 - Certificate renewed (api.kinana.ai) │
-│                                                  │
-│  Alerts (Last 24h): 2 Critical, 5 High         │
-│                                                  │
-└─────────────────────────────────────────────────┘
-```
-
 ---
 
 ### Incident Response
 
 **Severity Levels:**
 
-| Level | Description | Examples | Response Time |
-|-------|-------------|----------|---------------|
-| **Critical** | Active security breach | Data breach, ransomware, system compromise | < 1 hour |
-| **High** | Potential security breach | Attempted breach, DDoS, privilege escalation | < 4 hours |
-| **Medium** | Security policy violation | Failed compliance, misconfiguration | < 24 hours |
-| **Low** | Minor security issue | Weak passwords, outdated software | < 72 hours |
+| Level        | Description               | Examples                                     | Response Time |
+| ------------ | ------------------------- | -------------------------------------------- | ------------- |
+| **Critical** | Active security breach    | Data breach, ransomware, system compromise   | < 1 hour      |
+| **High**     | Potential security breach | Attempted breach, DDoS, privilege escalation | < 4 hours     |
+| **Medium**   | Security policy violation | Failed compliance, misconfiguration          | < 24 hours    |
+| **Low**      | Minor security issue      | Weak passwords, outdated software            | < 72 hours    |
 
 **Incident Response Process:**
 
 **1. Detection & Analysis (0-30 minutes)**
+
 ```yaml
 Actions:
   - Identify security event
@@ -1640,10 +1349,10 @@ Tools:
   - SIEM alerts
   - Log analysis
   - User reports
-  - Automated monitoring
 ```
 
 **2. Containment (30-60 minutes)**
+
 ```yaml
 Short-term:
   - Isolate affected systems
@@ -1659,6 +1368,7 @@ Long-term:
 ```
 
 **3. Eradication (1-4 hours)**
+
 ```yaml
 Actions:
   - Remove threat (malware, backdoors)
@@ -1669,6 +1379,7 @@ Actions:
 ```
 
 **4. Recovery (2-8 hours)**
+
 ```yaml
 Actions:
   - Restore from backups (if needed)
@@ -1679,6 +1390,7 @@ Actions:
 ```
 
 **5. Post-Incident (1-7 days)**
+
 ```yaml
 Actions:
   - Document incident
@@ -1697,6 +1409,7 @@ Report Contents:
 ```
 
 **Incident Response Team:**
+
 ```yaml
 Security Lead:
   - Overall coordination
@@ -1726,6 +1439,7 @@ Legal/Compliance:
 ### GDPR Compliance
 
 **Data Subject Rights:**
+
 ```yaml
 Right to Access:
   - Users can download their data
@@ -1755,6 +1469,7 @@ Right to Restrict Processing:
 ```
 
 **Data Processing:**
+
 ```yaml
 Legal Basis:
   - Consent (explicit)
@@ -1778,6 +1493,7 @@ Storage Limitation:
 ```
 
 **Breach Notification:**
+
 ```yaml
 Timeline:
   - Detection → 1 hour
@@ -1798,6 +1514,7 @@ Content:
 ### ISO 27001
 
 **Information Security Management System (ISMS):**
+
 ```yaml
 Risk Management:
   - Annual risk assessment
@@ -1829,6 +1546,7 @@ Management Review:
 ### SOC 2
 
 **Trust Service Criteria:**
+
 ```yaml
 Security:
   - Access controls
@@ -1868,86 +1586,90 @@ Privacy:
 ### Planned Improvements (Next 12 Months)
 
 **Q1 2025:**
+
 ```yaml
 1. Service Mesh (Istio)
-   - mTLS between services
-   - Fine-grained policies
-   - Circuit breaking
-   - Advanced observability
+- mTLS between services
+- Fine-grained policies
+- Circuit breaking
+- Advanced observability
 
 2. Web Application Firewall (WAF)
-   - OWASP Top 10 protection
-   - Bot detection
-   - Rate limiting
-   - Geo-blocking
+- OWASP Top 10 protection
+- Bot detection
+- Rate limiting
+- Geo-blocking
 
 3. Enhanced MFA
-   - WebAuthn/FIDO2 support
-   - Biometric authentication
-   - Hardware security keys
+- WebAuthn/FIDO2 support
+- Biometric authentication
+- Hardware security keys
 ```
 
 **Q2 2025:**
+
 ```yaml
 4. Security Information and Event Management (SIEM)
-   - Azure Sentinel integration
-   - Real-time threat detection
-   - Automated response
-   - Advanced analytics
+- Azure Sentinel integration
+- Real-time threat detection
+- Automated response
+- Advanced analytics
 
 5. Vulnerability Management
-   - Continuous scanning
-   - Automated patching
-   - Risk scoring
-   - Remediation tracking
+- Continuous scanning
+- Automated patching
+- Risk scoring
+- Remediation tracking
 
 6. Zero Trust Architecture
-   - Device trust evaluation
-   - Continuous authentication
-   - Micro-segmentation
-   - Context-aware access
+- Device trust evaluation
+- Continuous authentication
+- Micro-segmentation
+- Context-aware access
 ```
 
 **Q3 2025:**
+
 ```yaml
 7. Advanced Threat Protection
-   - AI/ML-based detection
-   - Behavioral analysis
-   - Anomaly detection
-   - Threat intelligence integration
+- AI/ML-based detection
+- Behavioral analysis
+- Anomaly detection
+- Threat intelligence integration
 
 8. Data Loss Prevention (DLP)
-   - Content inspection
-   - Policy-based blocking
-   - User behavior analytics
-   - Incident management
+- Content inspection
+- Policy-based blocking
+- User behavior analytics
+- Incident management
 
 9. Security Orchestration (SOAR)
-   - Automated workflows
-   - Playbook execution
-   - Integration with tools
-   - Response automation
+- Automated workflows
+- Playbook execution
+- Integration with tools
+- Response automation
 ```
 
 **Q4 2025:**
+
 ```yaml
 10. Compliance Automation
-    - Automated compliance checks
-    - Policy enforcement
-    - Audit preparation
-    - Reporting automation
+- Automated compliance checks
+- Policy enforcement
+- Audit preparation
+- Reporting automation
 
 11. Security Training Platform
-    - Phishing simulations
-    - Security awareness
-    - Role-based training
-    - Certification tracking
+- Phishing simulations
+- Security awareness
+- Role-based training
+- Certification tracking
 
 12. Bug Bounty Program
-    - Responsible disclosure
-    - External security testing
-    - Vulnerability rewards
-    - Security community engagement
+- Responsible disclosure
+- External security testing
+- Vulnerability rewards
+- Security community engagement
 ```
 
 ---
@@ -1969,6 +1691,7 @@ The Kinana Platform's security architecture implements comprehensive, defense-in
 ### Continuous Improvement
 
 The security posture is continuously enhanced through:
+
 - Regular security assessments and penetration testing
 - Vulnerability management and patching
 - Security awareness training

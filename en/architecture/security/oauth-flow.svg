@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <style>
+      .box { fill: #667eea; stroke: #4c51bf; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 13px; fill: #fff; text-anchor: middle; }
+      .detail { font-family: Arial, sans-serif; font-size: 11px; fill: #fff; text-anchor: start; }
+      .arrow { stroke: #4c51bf; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .label { font-family: Arial, sans-serif; font-size: 13px; fill: #4c51bf; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4c51bf" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">
+    OAuth 2.0 / OpenID Connect Flow
+  </text>
+  
+  <!-- User (start) -->
+  <rect x="200" y="60" width="200" height="60" rx="8" class="box"/>
+  <text x="300" y="95" class="text">User</text>
+  
+  <!-- Arrow to Identity Service -->
+  <path d="M 300 120 L 300 160" class="arrow"/>
+  <text x="330" y="145" class="label">1. Login Request</text>
+  
+  <!-- Identity Service -->
+  <rect x="150" y="160" width="300" height="80" rx="8" class="box"/>
+  <text x="300" y="190" class="text">Identity Service</text>
+  <text x="300" y="210" class="subtitle">(id.kinana.ai)</text>
+  <text x="300" y="228" class="subtitle" style="font-size: 10px;">Validates credentials</text>
+  
+  <!-- Arrow to User Database -->
+  <path d="M 300 240 L 300 280" class="arrow"/>
+  <text x="330" y="260" class="label" style="font-size: 11px;">2. Validate</text>
+  <text x="330" y="273" class="label" style="font-size: 10px;">Credentials</text>
+  
+  <!-- User Database -->
+  <rect x="180" y="280" width="240" height="70" rx="8" style="fill: #50C878; stroke: #2E7D4E; stroke-width: 2;"/>
+  <text x="300" y="310" class="text">User Database</text>
+  <text x="190" y="333" class="detail">• Password hash (bcrypt)</text>
+  <text x="190" y="345" class="detail">• Account status check</text>
+  
+  <!-- Arrow to Generate Tokens -->
+  <path d="M 300 350 L 300 390" class="arrow"/>
+  <text x="330" y="373" class="label" style="font-size: 11px;">3. User Valid</text>
+  
+  <!-- Generate Tokens -->
+  <rect x="180" y="390" width="240" height="70" rx="8" class="box"/>
+  <text x="300" y="415" class="text">Generate Tokens</text>
+  <text x="190" y="438" class="detail">• Access Token (JWT, 1 hour)</text>
+  <text x="190" y="450" class="detail">• Refresh Token (30 days)</text>
+  
+  <!-- Arrow to User (end) -->
+  <path d="M 300 460 L 300 500" class="arrow"/>
+  <text x="330" y="483" class="label">4. Return Tokens</text>
+  
+  <!-- User (end) -->
+  <rect x="200" y="500" width="200" height="60" rx="8" class="box"/>
+  <text x="300" y="525" class="text">User</text>
+  <text x="300" y="545" class="subtitle" style="font-size: 12px;">✓ Authenticated</text>
+</svg>
